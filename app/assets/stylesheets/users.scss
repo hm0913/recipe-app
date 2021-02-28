@@ -1,0 +1,18 @@
+.header {
+  background-color: aquamarine;
+  
+  &-title {
+    font-size: 50px;
+  }
+
+  &-btn {
+    display: flex;
+    float: right;
+    
+  }
+}
+
+.image{
+  height: 150px;
+  width: 150px;
+}
