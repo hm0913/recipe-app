@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  root to: 'users#index'
+  root to: 'recipes#index'
   resources :users, only: [:index, :show]
+  resources :recipes, only: [:index, :new, :create]
 end
