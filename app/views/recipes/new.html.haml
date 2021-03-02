@@ -1,0 +1,14 @@
+= form_with model: @recipe, local: true do |f|
+  = f.label :name, "レシピ名"
+  = f.text_field :name, autofocus: true
+  %p
+    = f.label :category, "ジャンル"
+    = f.collection_select(:category_id, @categorys, :id, :name, {prompt: "選択してください"})
+  %p
+    = f.label :introduction, "紹介文"
+    = f.text_area :introduction
+  %p
+    = f.label :image, "写真"
+    = f.file_field :image
+  %p
+    = f.submit "レシピを書く"
