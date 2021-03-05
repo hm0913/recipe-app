@@ -1,0 +1,7 @@
+.nested-fields
+  .field
+    = f.label :name, "材料"
+    = f.text_field :name
+    = f.label :amount, "分量"
+    = f.text_field :amount
+    = link_to_remove_association "削除", f

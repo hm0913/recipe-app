@@ -5,8 +5,11 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @categorys = Category.all
     @recipe = Recipe.new
+    @categorys = Category.all
+    @orders = Order.all
+    @recipe.ingredients.build
+    @recipe.makes.build
     
   end
 
@@ -18,6 +21,9 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :category_id, :image, :introduction).merge(user_id: current_user.id, )
+    params.require(:recipe).permit(:name, :category_id, :image, :serving, :introduction, 
+      ingredients_attributes:[:name, :amount, :recipe_id, :_destroy],
+      makes_attributes:[:sentence, :recipe_id, :order_id, :_destroy]
+    ).merge(user_id: current_user.id, )
   end
 end

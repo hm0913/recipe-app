@@ -1,14 +1,34 @@
 = form_with model: @recipe, local: true do |f|
-  = f.label :name, "レシピ名"
-  = f.text_field :name, autofocus: true
-  %p
-    = f.label :category, "ジャンル"
-    = f.collection_select(:category_id, @categorys, :id, :name, {prompt: "選択してください"})
-  %p
-    = f.label :introduction, "紹介文"
-    = f.text_area :introduction
-  %p
-    = f.label :image, "写真"
-    = f.file_field :image
-  %p
-    = f.submit "レシピを書く"
+  .recipe-name
+    = f.label :name, "レシピ名"
+    = f.text_field :name, class: "recipe-name", autofocus: true
+  .recipe-category
+    %p
+      = f.label :category, "ジャンル"
+      = f.collection_select(:category_id, @categorys, :id, :name, {prompt: "選択してください"})
+  .recipe-introduction  
+    %p
+      = f.label :introduction, "紹介文"
+      = f.text_area :introduction
+  .recipe-serving
+    %p
+      = f.text_field :serving
+      = f.label :serving, "人分"
+  .recipe-ingredient
+    %p
+      = f.fields_for :ingredients do |i|
+        = render 'ingredient_fields', f: i
+        .links
+          =link_to_add_association "+食材を追加", f, :ingredients
+  .recipe-make
+    %p
+      = f.fields_for :makes do |m|
+        = render 'make_fields', f: m
+        .links
+          = link_to_add_association "+工程を追加", f, :makes
+          
+    %p
+      = f.label :image, "写真"
+      = f.file_field :image
+    %p
+      = f.submit "レシピを書く"
