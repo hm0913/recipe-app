@@ -1,6 +1,9 @@
--# - @recipes.each do |r|
--#   = r.name
--#   = r.category
-  -# = image_tag r.image.url
+- @recipes.each do |r|
+  = link_to "#{r.name}", "#", class: "recipe-name"
 
-recipes#index
+  - if r.image?
+    = image_tag r.image.thumb.url
+  -else
+    = image_tag '/assets/default.png', class: "image"
+
+  = link_to "#{r.user.name}", "#", class: "user-name"
