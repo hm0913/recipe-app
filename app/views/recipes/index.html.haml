@@ -7,3 +7,9 @@
     = image_tag '/assets/default.png', class: "image"
 
   = link_to "#{r.user.name}", "#", class: "user-name"
+  
+
+
+
+  = link_to "編集", "recipes/#{r.id}/edit"
+  = link_to "削除", "recipes/#{r.id}", method: :delete, data: {confirm: "本当に#{r.name}を削除しますか？"}
