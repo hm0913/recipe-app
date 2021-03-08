@@ -2,10 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.recipe-name {
-  font-size: 30px;
-}
+.recipe {
+  height: 1000px;
+  width: 700px;
+  // background-color: aquamarine;
+  border: solid thin black;
+  margin: 0 auto;
 
-.recipe-category {
-  font-size: 20px;
+  &-category {
+    border: solid medium red ;
+    border-radius: 30px;
+    width: 20%;
+    background-color: salmon;
+    text-align: center;
+
+  }
+
+  &-name {
+    font-size: 30px;
+  }
+
+  &-introduction {
+
+  }
+
+  
+
+  &-image {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    img {
+      object-fit: cover;
+      height: 300px;
+      width: 300px;
+      margin-left: 30px;
+    }
+    .ingredient {
+      height: 300px;
+      width: 300px;
+      border: solid thin gray;
+      margin-left: 30px;
+      .items {
+        border-bottom: dotted thin gray;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+    
+  }
+  &-make {
+    margin: 10px;
+  }
+
 }

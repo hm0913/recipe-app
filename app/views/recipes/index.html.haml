@@ -1,5 +1,5 @@
 - @recipes.each do |r|
-  = link_to "#{r.name}", "#", class: "recipe-name"
+  = link_to "#{r.name}", "/recipes/#{r.id}", class: "recipe-name"
 
   - if r.image?
     = image_tag r.image.thumb.url
