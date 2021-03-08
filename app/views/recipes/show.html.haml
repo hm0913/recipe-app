@@ -1,0 +1,27 @@
+.recipe
+  = link_to "ユーザー", "#"
+  = link_to "お気に入り", "#"
+  .recipe-category
+    = @recipe.category.name
+  .recipe-name
+    = @recipe.name
+  .recipe-introduction
+    = @recipe.introduction
+  .recipe-image
+    = image_tag @recipe.image.url
+  
+
+    .ingredient
+      [材料]
+      = "(#{@recipe.serving}人分)"
+      - @recipe.ingredients.each do |ingredient|
+        .items
+          = ingredient.name
+          = ingredient.amount
+
+  .recipe-make
+    [作り方]
+    - @recipe.makes.each do |make|
+      .content
+        =make.order_id
+        =make.sentence
