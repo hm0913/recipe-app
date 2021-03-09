@@ -1,9 +1,28 @@
 .user-mypage
-  = "#{@user.name}さんのページ"
+  .user-mypage__name
+    = "#{@user.name}さんのページ"
+    
+    .image
+      - if @user.image?
+        = image_tag @user.image.thumb.url
+      - else
+        = image_tag '/assets/default.png', class: "image"
+    .btn
+      - if user_signed_in? && current_user.id
+        = button_to "プロフィールの編集", edit_user_registration_path, method: :get, class: "plof-btn"
+        = button_to "レシピを書く", new_recipe_path, method: :get, class: "create-btn"
 
-  - if @user.image?
-    = image_tag @user.image.thumb.url
-  -else
-    = image_tag '/assets/default.png', class: "image"
-  = button_to "プロフィールの編集", edit_user_registration_path, method: :get, class: "btn"
-  = button_to "レシピを書く", new_recipe_path, method: :get, class: "btn"
+
+
+.user-recipes
+  = "#{@user.name}さんの新着レシピ"
+  .user-recipes__list
+    - @user.recipes.order(created_at: :desc).each do |r|
+      .box
+        .r-name
+          = link_to "#{r.name}", "/recipes/#{r.id}"
+        .r-image
+          - if r.image?
+            = image_tag r.image.thumb.url
+          - else
+            = image_tag '/assets/default.png'

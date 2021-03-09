@@ -1,6 +1,11 @@
 .recipe
-  = link_to "ユーザー", "#"
-  = link_to "お気に入り", "#"
+  - if user_signed_in? && current_user.id == @recipe.user_id
+    = link_to "編集", "#{@recipe.id}/edit"
+    = link_to "削除", "#{@recipe.id}", method: :delete, data: {confirm: "本当に#{@recipe.name}を削除しますか？"}
+  -else
+    = link_to "ユーザー", "#"
+    = link_to "お気に入り", "#"
+    
   .recipe-category
     = @recipe.category.name
   .recipe-name
@@ -8,7 +13,7 @@
   .recipe-introduction
     = @recipe.introduction
   .recipe-image
-    = image_tag @recipe.image.url
+    = image_tag @recipe.image.thumb.url
   
 
     .ingredient
@@ -25,3 +30,5 @@
       .content
         =make.order_id
         =make.sentence
+
+= link_to "一覧に戻る", "#"
