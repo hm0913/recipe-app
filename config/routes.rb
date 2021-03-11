@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   }
   root to: 'recipes#index'
   resources :users, only: [:index, :show]
-  resources :recipes, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+  resources :recipes do
+    collection do
+      get 'search'
+    end
+  end
 end

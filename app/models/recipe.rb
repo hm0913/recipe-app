@@ -10,4 +10,12 @@ class Recipe < ApplicationRecord
   has_many :makes, dependent: :destroy
   accepts_nested_attributes_for :makes, allow_destroy: true
   mount_uploader :image, ImageUploader
+
+  def self.search(search)
+    if search
+      Recipe.where('name LIKE(?)', "%#{search}%")
+    else
+      Recipe.order("created_at DESC")
+    end
+  end
 end
