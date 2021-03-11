@@ -51,7 +51,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-
+  def search
+    @recipes = Recipe.search(params[:keyword])
+  end
 
   private
   def recipe_params
