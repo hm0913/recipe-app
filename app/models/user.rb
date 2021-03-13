@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   has_many :recipes
+  has_many :favorites, dependent: :destroy
+  def favorited_by?(recipe_id)
+    favorites.where(recipe_id: recipe_id).exists?
+  end
 end

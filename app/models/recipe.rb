@@ -10,6 +10,7 @@ class Recipe < ApplicationRecord
   has_many :makes, dependent: :destroy
   accepts_nested_attributes_for :makes, allow_destroy: true
   mount_uploader :image, ImageUploader
+  has_many :favorites, dependent: :destroy
 
   def self.search(search)
     if search

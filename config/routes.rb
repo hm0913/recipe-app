@@ -10,4 +10,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  post 'favorite/:id', to: 'favorites#create', as: 'create_favorite'
+  delete 'favorite/:id', to: 'favorites#destroy', as: 'destroy_favorite'
+  resources :favorites, only: [:index]
 end
