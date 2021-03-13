@@ -2,7 +2,6 @@
 
 - @recipes.order(created_at: :desc).each do |r|
   = link_to "#{r.name}", "/recipes/#{r.id}", class: "r-name"
-
   - if r.image?
     = image_tag r.image.thumb.url
   -else
@@ -10,8 +9,11 @@
 
   = link_to "#{r.user.name}", "#", class: "user-name"
   
-
-
-
-  = link_to "編集", "recipes/#{r.id}/edit"
-  = link_to "削除", "recipes/#{r.id}", method: :delete, data: {confirm: "本当に#{r.name}を削除しますか？"}
+  - if current_user.favorited_by?(r.id)
+    = link_to destroy_favorite_path(r), method: :delete do
+      = icon("fas", "heart", class: "unlike-btn")
+      = r.favorites.count
+  - else
+    = link_to create_favorite_path(r), method: :POST do
+      = icon("far", "heart", class: "like-btn")
+      = r.favorites.count

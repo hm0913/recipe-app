@@ -3,8 +3,15 @@
     = link_to "編集", "#{@recipe.id}/edit"
     = link_to "削除", "#{@recipe.id}", method: :delete, data: {confirm: "本当に#{@recipe.name}を削除しますか？"}
   -else
-    = link_to "ユーザー", "#"
-    = link_to "お気に入り", "#"
+    = link_to "#{@recipe.user.name}", "#"
+    - if current_user.favorited_by?(@recipe.id)
+      = link_to destroy_favorite_path(@recipe), method: :delete do
+        = icon("fas", "heart", class: "unlike-btn")
+        = @recipe.favorites.count
+    - else
+      = link_to create_favorite_path(@recipe), method: :POST do
+        = icon("far", "heart", class: "like-btn")
+        = @recipe.favorites.count
     
   .recipe-category
     = @recipe.category.name

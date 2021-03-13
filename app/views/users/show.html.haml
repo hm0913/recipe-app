@@ -8,9 +8,12 @@
       - else
         = image_tag '/assets/default.png', class: "image"
     .btn
-      - if user_signed_in? && current_user.id
+      - if user_signed_in? && current_user.id == @user.id
         = button_to "プロフィールの編集", edit_user_registration_path, method: :get, class: "plof-btn"
         = button_to "レシピを書く", new_recipe_path, method: :get, class: "create-btn"
+        = link_to "お気に入り", favorites_path
+      - else
+        
 
 
 
