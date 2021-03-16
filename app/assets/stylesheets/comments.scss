@@ -1,0 +1,48 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comments {
+  width: 700px;
+  margin: 0 auto;
+  border: solid thin black;
+  .comments-form {
+    
+    .c-area {
+      width: 700px;
+      text-align: center;
+      textarea {
+        width: 600px;
+        height: 50px;
+        margin-top: 20px;
+      }
+    }
+    .c-sub {
+      text-align: center;
+      input {
+        width: 500px;
+        background-color: pink;
+      }
+    }
+  
+    &__text-all {
+      width: 300;
+      margin-left: 45px;
+      margin-right: 45px;
+      font-size: 12px;
+      word-wrap: break-word;
+      
+      &__list {
+        margin: 20px;
+        .c-name {
+
+        }
+        
+        .text {
+
+        }
+      }
+    }
+  }
+}

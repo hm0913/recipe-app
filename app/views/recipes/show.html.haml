@@ -3,7 +3,7 @@
     = link_to "編集", "#{@recipe.id}/edit"
     = link_to "削除", "#{@recipe.id}", method: :delete, data: {confirm: "本当に#{@recipe.name}を削除しますか？"}
   -else
-    = link_to "#{@recipe.user.name}", "#"
+    = link_to "#{@recipe.user.name}", user_path(@recipe.user_id)
     - if current_user.favorited_by?(@recipe.id)
       = link_to destroy_favorite_path(@recipe), method: :delete do
         = icon("fas", "heart", class: "unlike-btn")
@@ -38,4 +38,29 @@
         =make.order_id
         =make.sentence
 
-= link_to "一覧に戻る", "#"
+.comments
+  .comments-form
+    = form_with model: [@recipe, @comment], local: true do |f|
+      .c-area
+        = f.text_area :text, placeholder: "コメントする"
+      .c-sub
+        = f.submit "送信"
+
+  .comments-form__text-all
+    %h4
+      ＜コメント一覧＞
+    - if @comments.present?
+      - @comments.each do |c|
+        .comments-form__text-all__list
+          .c-name
+            = link_to c.user.name, user_path(c.user.id)
+          .text
+            = c.text
+            - if c.user == current_user
+              = link_to "削除", recipe_comment_path(@recipe, c), method: :delete
+    
+    - else
+      = "まだコメントがありません" 
+
+.back
+  = button_to "レシピ一覧に戻る", root_path, method: :get
