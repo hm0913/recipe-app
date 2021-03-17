@@ -1,0 +1,61 @@
+.search-form {
+  width: 500px;
+  height: 30px;
+}
+
+.search-btn {
+  width: 100px;
+  height: 30px;
+  
+}
+
+.r-all {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  &:after {
+    content: "";
+    width: 300px;
+  }
+  &:before {
+    content: "";
+    width: 300px;
+    order: 1;
+  }
+  
+  &__list {
+    width: 300px;
+    border: solid thin black;
+    margin-top: 10px;
+    
+    .r-name {
+      
+    }  
+    .r-image {
+
+      img {
+        width: 200px;
+        height: 200px;
+        
+      }
+    }
+
+    .unlike-btn {
+      float: right;
+    }
+    .like-btn {
+      float: right;
+    }
+
+    .like-count {
+      float: right;
+    }
+
+    .user-name {
+      
+    }
+
+    
+  }
+}
