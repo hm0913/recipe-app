@@ -57,6 +57,14 @@ class RecipesController < ApplicationController
     @recipes = Recipe.search(params[:keyword])
   end
 
+  def research
+    if params[:id].to_i >= 5
+      @recipe = Recipe.where("serving >= ?", 5)
+    else
+      @recipe = Recipe.where(serving: params[:id])
+    end
+  end
+
   private
   def recipe_params
     params.require(:recipe).permit(:name, :category_id, :image, :serving, :introduction, 

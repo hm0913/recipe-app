@@ -11,7 +11,7 @@
       - if user_signed_in? && current_user.id == @user.id
         = button_to "プロフィールの編集", edit_user_registration_path, method: :get, class: "plof-btn"
         = button_to "レシピを書く", new_recipe_path, method: :get, class: "create-btn"
-        = link_to "お気に入り", favorites_path
+        = button_to "お気に入り", favorites_path, method: :get, class: "favorite-btn"
       - else
         
 
@@ -23,7 +23,7 @@
     - @user.recipes.order(created_at: :desc).each do |r|
       .box
         .r-name
-          = link_to "#{r.name}", "/recipes/#{r.id}"
+          = link_to "#{r.name}", "/recipes/#{r.id}", class: "rr-name"
         .r-image
           - if r.image?
             = image_tag r.image.thumb.url

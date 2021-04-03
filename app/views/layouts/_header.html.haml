@@ -1,0 +1,52 @@
+.header-title
+  = link_to "Title", root_path, class: "title"
+
+.navigation-bar
+  %ul.navigation-category
+    %li.navigation-list
+      = link_to "Category", root_path, class: "list"
+      .navigation-category__item
+        %ul.item-box
+          %li.category-item
+            = link_to "主食", category_path(id: 1), class: "item"
+          %li.category-item
+            = link_to "主菜", category_path(id: 2), class: "item"
+          %li.category-item
+            = link_to "副菜", category_path(id: 3), class: "item"
+          %li.category-item
+            = link_to "おつまみ", category_path(id: 4), class: "item"
+          %li.category-item
+            = link_to "スープ", category_path(id: 5), class: "item"
+          %li.category-item
+            = link_to "スイーツ", category_path(id: 6), class: "item"
+
+  %ul.navigation-category
+    %li.navigation-list
+      = link_to "Serving", root_path, class: "list"
+      .navigation-category__item
+        %ul.item-box
+          %li.category-item
+            = link_to "1人分", research_recipe_path(id: 1), class: "item"
+          %li.category-item
+            = link_to "2人分", research_recipe_path(id: 2), class: "item"
+          %li.category-item
+            = link_to "3人分", research_recipe_path(id: 3), class: "item"
+          %li.category-item
+            = link_to "4人分", research_recipe_path(id: 4), class: "item"
+          %li.category-item
+            = link_to "5人分〜", research_recipe_path(id: 5), class: "item"
+
+.search-form
+  = form_with url: search_recipes_path, method: :get, local: true do |f|
+    .search-form__area
+      = f.text_field :keyword, placeholder: "レシピ名"
+      = button_tag do
+        = icon("fas", "search", class: "search-btn")
+
+.header-btn
+  - if user_signed_in?
+    = button_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn"
+    = button_to "マイページ", "/users/#{current_user.id}", method: :get, class: "btn"
+  - else
+    = button_to "ログイン", new_user_session_path, method: :get, class: "btn"
+    = button_to "新規登録", new_user_registration_path, method: :get, class: "btn"

@@ -1,18 +1,98 @@
-.header {
-  background-color: aquamarine;
+.area {
+  width: 500px;
+  margin: 0 auto;
+  border: solid thin black;
   
-  &-title {
-    font-size: 50px;
+  h2 {
+    margin: 15px;
+    text-align: center;
+    font-size: 20px;
   }
 
-  &-btn {
-    display: flex;
-    float: right;
+  h3 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+  }
+
+  #error_explanation {
+    font-size: 13px;
+    text-align: center;
+    h2 {
+      font-size: 13px;
+    }
+    li {
+      list-style: none;
+    }
+  }
+  
+  .field-box {  
+    .f-label {
+      margin: 8px;
+      
+      input {
+        margin: 5px;
+        width: 250px;
+      }
+
+      label {
+        font-size: 13px;
+        font-weight: bolder;
+        margin: 8px;
+      }
+
+      em {
+        font-size: 13px;
+        font-weight: bolder;
+      }
+    }
+
+    .f-check {
+      input {
+        margin-left: 16px;
+      }
+
+      label {
+        font-size: 13px;
+        font-weight: bolder;
+        margin: 8px;
+      }
+    }
+
+    .actions {
+      text-align: center;
+      input {
+        margin: 8px;
+      }
+    }
     
+    a {
+      text-decoration: none;
+      font-size: 13px;
+      float: right;
+    }  
+  
   }
-}
 
-.image{
-  height: 150px;
-  width: 150px;
+  .user-delete {
+    text-align: center;
+  
+    h3 {
+      text-align: left;
+      margin: 10px;
+    }
+    input {
+      margin: 10px;
+      text-align: center;
+    }
+
+    .back {
+      text-align: right;
+      a {
+        text-decoration: none;
+        font-size: 13px;
+        text-align: right;
+      }
+    }
+  }
 }

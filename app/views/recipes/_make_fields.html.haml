@@ -1,6 +1,5 @@
 .nested-fields
-  = f.label :order, "手順"
   = f.collection_select(:order_id, Order.all, :id, :number, {prompt: ""})
-  = f.label :sentence, "作り方"
-  = f.text_area :sentence
-  = link_to_remove_association "削除", f
+  .f-area
+    = f.text_area :sentence, placeholder: "作り方"
+    = link_to_remove_association "削除", f, class: "delete-btn"

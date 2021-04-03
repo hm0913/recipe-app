@@ -1,6 +1,10 @@
 - if @favorites.present?
-  - @favorites.each do |f|
-    = link_to "#{f.recipe.name}", recipe_path(f.recipe.id)
-    = image_tag f.recipe.image.thumb.url
+  .r-all
+    - @favorites.each do |f|
+      .r-all__list
+        .r-name
+          = link_to "#{f.recipe.name}", recipe_path(f.recipe.id), class: "r-name"
+          .r-image
+            = image_tag f.recipe.image.thumb.url
 - else
   = "お気に入り登録中のレシピはありません"

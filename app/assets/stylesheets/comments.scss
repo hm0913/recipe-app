@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .comments {
-  width: 700px;
+  width: 740px;
   margin: 0 auto;
   border: solid thin black;
+  margin-top: 10px;
   .comments-form {
     
     .c-area {
-      width: 700px;
+      width: 740px;
       text-align: center;
       textarea {
         width: 600px;
@@ -20,29 +20,60 @@
     }
     .c-sub {
       text-align: center;
+      padding: 10px;
       input {
         width: 500px;
-        background-color: pink;
+        background-color: ivory;
+        font-weight: bolder;
       }
     }
   
     &__text-all {
-      width: 300;
-      margin-left: 45px;
-      margin-right: 45px;
-      font-size: 12px;
+      width: 600px;
+      font-size: 15px;
       word-wrap: break-word;
-      
-      &__list {
-        margin: 20px;
-        .c-name {
+      margin: 0 auto;
 
+      &__list {
+        margin: 5px;
+        border-bottom: solid thin gray;
+        padding: 5px;
+        width: 550px;
+        display: flex;
+        
+        .c-image {
+          width: 60px;
+          height: 60px;
+          margin: 3px;
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+        }
+
+        .c-name {
+          width: 450px;
+          a {
+            color: black;
+            font-weight: bolder;
+          }
+        }
+
+        .c-text {
+          padding-top: 3px;
         }
         
-        .text {
-
+        .destroy-btn {
         }
+
+        .des-btn {
+          color: gray;
+        }
+        
+
       }
+      
     }
   }
 }

@@ -1,0 +1,116 @@
+.recipe {
+  width: 700px;
+  border: solid thin gray;
+  margin: 0 auto;
+  padding: 20px;
+
+  &-category {
+    border: solid medium red ;
+    border-radius: 30px;
+    width: 20%;
+    background-color: salmon;
+    text-align: center;
+
+  }
+
+  &-name {
+    font-size: 40px;
+    margin: 2px;
+  }
+
+  &-introduction {
+    margin: 2px;
+  }
+
+  .user-name {
+    text-align: right;
+    a {
+      text-decoration: none;
+      color: gray;
+    }
+  }
+
+  .unlike {
+    text-align: right;
+    .unlike-btn {
+      color: palevioletred;
+      padding: 5px;
+    }
+
+  }
+  .like {
+    .like-btn {
+      color: gray;
+      padding: 5px;
+    }
+  }
+
+  .like-count {
+    float: right;
+    color: gray;
+    padding: 5px;
+  }
+
+  .recipe-edit {
+    float: left;
+    width: 95%;
+    text-align: right;
+
+    .edit-btn {
+      font-size: 20px;
+      color: gray;
+    }
+  }
+
+  .recipe-delete {
+    text-align: right;
+
+    .delete-btn {
+      font-size: 20px;
+      color: gray;
+    }
+
+  }
+
+  
+
+  
+
+  
+
+  &-image {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+
+    img {
+      object-fit: cover;
+      height: 300px;
+      width: 300px;
+    }
+    .ingredient {
+      height: 280px;
+      width: 280px;
+      border: solid thin gray;
+      padding: 10px;
+      .items {
+        border-bottom: dotted thin gray;
+        padding: 5px;
+      }
+    }
+    
+  }
+  &-make {
+    border: solid thin gray;
+    width: 600px;
+    padding: 10px;
+    margin: 0 auto;
+
+    .content {
+      padding: 10px;
+      border-bottom: dotted thin gray;
+    }
+    
+  }
+
+}

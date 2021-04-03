@@ -11,15 +11,7 @@
   %body
     %header
       = render 'layouts/notification'
+      = render 'layouts/header'
       
-      .header-title
-        = link_to "Title", "/", class: "title"
-      .header-btn
-        - if user_signed_in?
-          = button_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn"
-          = button_to "マイページ", "/users/#{current_user.id}", method: :get, class: "btn"
-        - else
-          = button_to "ログイン", new_user_session_path, method: :get, class: "btn"
-          = button_to "新規登録", new_user_registration_path, method: :get, class: "btn"
-        
+      
     = yield

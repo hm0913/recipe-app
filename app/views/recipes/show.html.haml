@@ -1,17 +1,27 @@
 .recipe
   - if user_signed_in? && current_user.id == @recipe.user_id
-    = link_to "編集", "#{@recipe.id}/edit"
-    = link_to "削除", "#{@recipe.id}", method: :delete, data: {confirm: "本当に#{@recipe.name}を削除しますか？"}
+    .recipe-edit
+      = link_to edit_recipe_path(@recipe.id), method: :get do
+        = icon("fas", "edit", class: "edit-btn")
+    .recipe-delete
+      = link_to "#{@recipe.id}", data: {confirm: "本当に#{@recipe.name}を削除しますか？"}, method: :delete do
+        = icon("fas", "trash-alt", class: "delete-btn")
   -else
-    = link_to "#{@recipe.user.name}", user_path(@recipe.user_id)
-    - if current_user.favorited_by?(@recipe.id)
-      = link_to destroy_favorite_path(@recipe), method: :delete do
-        = icon("fas", "heart", class: "unlike-btn")
-        = @recipe.favorites.count
-    - else
-      = link_to create_favorite_path(@recipe), method: :POST do
-        = icon("far", "heart", class: "like-btn")
-        = @recipe.favorites.count
+    .user-name
+      = link_to "#{@recipe.user.name}さんのレシピ", user_path(@recipe.user_id)
+      .recipe-like
+        - if current_user.favorited_by?(@recipe.id)
+          .unlike
+            = link_to destroy_favorite_path(@recipe), method: :delete do
+              = icon("fas", "heart", class: "unlike-btn")
+            .like-count
+              = @recipe.favorites.count
+        - else
+          .like
+            = link_to create_favorite_path(@recipe), method: :POST do
+              = icon("far", "heart", class: "like-btn")
+            .like-count
+              = @recipe.favorites.count
     
   .recipe-category
     = @recipe.category.name
@@ -35,8 +45,8 @@
     [作り方]
     - @recipe.makes.each do |make|
       .content
-        =make.order_id
-        =make.sentence
+        = "<#{make.order_id}>"
+        = make.sentence
 
 .comments
   .comments-form
@@ -52,13 +62,21 @@
     - if @comments.present?
       - @comments.each do |c|
         .comments-form__text-all__list
+          .c-image
+            = image_tag c.user.image.thumb.url
           .c-name
             = link_to c.user.name, user_path(c.user.id)
-          .text
-            = c.text
-            - if c.user == current_user
-              = link_to "削除", recipe_comment_path(@recipe, c), method: :delete
+            .c-text
+              = c.text
+          .destroy-btn
+          - if c.user == current_user
+            = link_to recipe_comment_path(@recipe, c), method: :delete do
+              = icon("fas", "trash-alt", class: "des-btn")
+          
+          
     
+            
+            
     - else
       = "まだコメントがありません" 
 

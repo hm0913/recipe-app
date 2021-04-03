@@ -1,7 +1,7 @@
 .r-all
-  - @recipes.order(created_at: :desc).each do |r|
+  - @category.order(created_at: :desc).each do |r|
     .r-all__list
-      = link_to "#{r.name}", "/recipes/#{r.id}", class: "r-name"
+      = link_to "#{r.name}", recipe_path(r.id), class: "r-name"
       - if current_user.favorited_by?(r.id)
         .unlike
           = link_to destroy_favorite_path(r), method: :delete do
@@ -14,12 +14,11 @@
             = icon("far", "heart", class: "like-btn")
             .like-count
               = r.favorites.count
-
       .r-image
         - if r.image?
           = image_tag r.image.thumb.url
         -else
-          = image_tag '/assets/default.png', class: "image"
+          = image_tag '/assets/default.png'
       .user-image
         - if r.user.image?
           = image_tag r.user.image.thumb.url

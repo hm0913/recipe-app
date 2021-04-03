@@ -1,0 +1,28 @@
+.area
+  %h2 アカウントの編集/削除
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field-box
+      .f-label
+        = f.label :ユーザー名
+        .field
+          = f.text_field :name, autofocus: true
+      .f-label
+        = f.label :email
+        .field
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+      .f-label
+        = f.label :プロフィール写真
+        .field
+          = f.file_field :image
+      .f-label
+        = f.label :current_password
+        .field
+          = f.password_field :current_password, autocomplete: "current-password"
+      .actions
+        = f.submit "更新する"
+  .user-delete
+    %h3 アカウントを削除しますか？
+    #{button_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete}
+    .back
+      = link_to "戻る", :back

@@ -1,34 +1,37 @@
-= form_with model: @recipe, local: true do |f|
-  .recipe-name
-    = f.label :name, "レシピ名"
-    = f.text_field :name, class: "recipe-name", autofocus: true
-  .recipe-category
-    %p
-      = f.label :category, "ジャンル"
-      = f.collection_select(:category_id, Category.all, :id, :name, {prompt: "選択してください"})
-  .recipe-introduction  
-    %p
-      = f.label :introduction, "紹介文"
-      = f.text_area :introduction
-  .recipe-serving
-    %p
-      = f.text_field :serving
-      = f.label :serving, "人分"
-  .recipe-ingredient
-    %p
-      = f.fields_for :ingredients do |i|
-        = render 'ingredient_fields', f: i
-        .links
-          =link_to_add_association "+食材を追加", f, :ingredients
-  .recipe-make
-    %p
-      = f.fields_for :makes do |m|
-        = render 'make_fields', f: m
-        .links
-          = link_to_add_association "+工程を追加", f, :makes
-          
-    %p
-      = f.label :image, "写真"
+.f-recipe
+  = form_with model: @recipe, local: true do |f|
+    .f-name
+      = f.label :name, "レシピ名"
+      .f-text
+        = f.text_field :name, class: "recipe-name", autofocus: true
+    .f-category
+      %p
+        = f.label :category, "ジャンル"
+        .f-text
+          = f.collection_select(:category_id, Category.all, :id, :name, {prompt: "選択してください"})
+    .f-introduction  
+      %p
+        = f.label :introduction, "紹介文"
+        .f-text
+          = f.text_area :introduction
+    .f-serving
+      %p
+        = f.text_field :serving
+        = f.label :serving, "人分"
+    .f-ingredient
+      %p
+        = f.fields_for :ingredients do |i|
+          = render 'ingredient_fields', f: i
+          .links
+            =link_to_add_association "+食材を追加", f, :ingredients, class: "ing-add"
+    .f-make
+      %p
+        = f.fields_for :makes do |m|
+          = render 'make_fields', f: m
+          .links
+            = link_to_add_association "+工程を追加", f, :makes, class: "make-add"
+    .f-image     
       = f.file_field :image
-    %p
-      = f.submit "更新する"
+    .f-submit
+      %p
+        = f.submit "更新する"
