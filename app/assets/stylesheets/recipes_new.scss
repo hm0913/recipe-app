@@ -1,0 +1,128 @@
+// Place all the styles related to the Recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.f-recipe {
+  width: 500px;
+  border: solid thin gray;
+  margin: 0 auto;
+  padding: 20px;
+
+  .f-name {
+    label {
+      font-size: 13px;
+      font-weight: bolder;
+    }
+    input {
+      width: 400px;
+      border: solid thin black;
+    }
+  }
+
+  .f-category {
+    padding: 5px;
+    label {
+      font-size: 13px;
+      font-weight: bolder;
+    }
+    select {
+      width: 150px;
+      border: solid thin black;
+    }
+  }
+
+  .f-introduction {
+    padding: 5px;
+    label {
+      font-size: 13px;
+      font-weight: bolder;
+    }
+    textarea {
+      border: solid thin black;
+      width: 400px;
+      height: 100px;
+    }
+  }
+
+  .f-serving {
+    padding: 5px;
+    label {
+      font-size: 13px;
+      font-weight: bolder;
+    }
+    input {
+      width: 150px;
+      border: solid thin black;
+    }
+  }
+
+  .f-ingredient {
+    font-size: 13px;
+    font-weight: bolder;
+    padding: 5px;
+    label {
+      font-size: 13px;
+      font-weight: bolder;
+    }
+    input {
+      width: 150px;
+      border: solid thin black;
+    }
+
+    .ing-add {
+      text-decoration: none;
+      color: gray;
+      font-size: 13px;
+    }
+
+    .delete-btn {
+      font-size: 13px;
+      color: gray;
+      text-decoration: none;
+    }
+  }
+
+  .f-make {
+    font-size: 13px;
+    font-weight: bolder;
+    padding: 5px;
+    label {
+      font-size: 20px;
+    }
+    select {
+      border: solid thin black;
+    }
+    textarea {
+      width: 400px;
+      border: solid thin black;
+    }
+
+    .make-add {
+      text-decoration: none;
+      color: gray;
+      font-size: 13px;
+    }
+
+    .delete-btn {
+      text-decoration: none;
+      font-size: 13px;
+      color: gray;
+    }
+  }
+
+  .f-image {
+    padding: 5px;
+    label {
+      font-size: 20px;
+    } 
+  }
+
+  .f-submit {
+    text-align: center;
+    padding: 10px;
+    input {
+      background-color: ivory;
+      font-weight: bolder;
+    }
+  }
+}
