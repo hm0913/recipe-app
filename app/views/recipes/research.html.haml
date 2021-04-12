@@ -18,11 +18,11 @@
         - if r.image?
           = image_tag r.image.thumb.url
         -else
-          = image_tag '/assets/default.png'
+          = image_tag asset_path('default.png', class: "image")
       .user-image
         - if r.user.image?
           = image_tag r.user.image.thumb.url
         - else
-          = image_tag '/assets/default.png'
+          = image_tag asset_path('default.png')
         .user-name
           = link_to "#{r.user.name}", user_path(r.user.id), class: "u-name"
