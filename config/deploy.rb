@@ -18,7 +18,11 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 # credentials.yml.enc用のシンボリックリンクを追加
+<<<<<<< Updated upstream
 set :linked_files, %w{ config/credentials.yml.enc }
+=======
+set :linked_files, %w{ config/master.key }
+>>>>>>> Stashed changes
 
 # 元々記述されていた after 「'deploy:publishing', 'deploy:restart'」以下を削除して、次のように書き換え
 
@@ -28,13 +32,21 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
+<<<<<<< Updated upstream
   desc 'upload credentials.yml.enc'
+=======
+  desc 'upload master.key'
+>>>>>>> Stashed changes
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
+<<<<<<< Updated upstream
       upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
+=======
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+>>>>>>> Stashed changes
     end
   end
   before :starting, 'deploy:upload'
