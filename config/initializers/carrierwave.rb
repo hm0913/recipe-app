@@ -16,6 +16,6 @@ CarrierWave.configure do |config|
     }
 
     config.fog_directory  = 'recipe-app2021'
-    config.asset_host = 'https://recipe-app2021.s3-ap-northeast-1.amazonaws.com'
+    config.asset_host = 'https://recipe-app2021.s3.amazonaws.com'
   end
 end
