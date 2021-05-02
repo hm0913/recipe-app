@@ -12,6 +12,7 @@ class Recipe < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  belongs_to :serving
 
   def self.search(search)
     if search
