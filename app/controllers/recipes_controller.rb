@@ -59,22 +59,22 @@ class RecipesController < ApplicationController
 
   def research
     if params[:id].to_i >= 5
-      @recipe = Recipe.where("serving >= ?", 5)
+      @recipe = Recipe.where("serving_id >= ?", 5)
     else
-      @recipe = Recipe.where(serving: params[:id])
+      @recipe = Recipe.where(serving_id: params[:id])
     end
   end
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :category_id, :image, :serving, :introduction, 
+    params.require(:recipe).permit(:name, :category_id, :image, :serving_id, :introduction, 
       ingredients_attributes:[:name, :amount, :recipe_id, :_destroy],
       makes_attributes:[:sentence, :recipe_id, :order_id, :_destroy]
     ).merge(user_id: current_user.id, )
   end
 
   def update_recipe_params
-    params.require(:recipe).permit(:name, :category_id, :image, :serving, :introduction, 
+    params.require(:recipe).permit(:name, :category_id, :image, :serving_id, :introduction, 
       ingredients_attributes:[:name, :amount, :recipe_id, :_destroy, :id],
       makes_attributes:[:sentence, :recipe_id, :order_id, :_destroy, :id]
     ).merge(user_id: current_user.id, )

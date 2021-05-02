@@ -16,8 +16,8 @@
           = f.text_area :introduction, placeholder: "紹介文"
     .f-serving
       %p
-        = f.text_field :serving
-        = f.label :serving, "人分"
+        = f.collection_select(:serving_id, Serving.all, :id, :number, {prompt: "選択してください"})
+        = f.label :serving_id, "人分"
     .f-ingredient
       材料・分量
       %p

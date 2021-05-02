@@ -35,7 +35,7 @@
 
     .ingredient
       [材料]
-      = "(#{@recipe.serving}人分)"
+      = "(#{@recipe.serving_id}人分)"
       - @recipe.ingredients.each do |ingredient|
         .items
           = ingredient.name
