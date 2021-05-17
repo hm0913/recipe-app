@@ -13,4 +13,12 @@ class User < ApplicationRecord
     favorites.where(recipe_id: recipe_id).exists?
   end
   has_many :comments, dependent: :destroy
+
+  def self.guest
+    find_or_create_by!(email: "test@com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト"
+    end
+  end
+
 end
