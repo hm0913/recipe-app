@@ -93,9 +93,40 @@
       width: 280px;
       border: solid thin gray;
       padding: 10px;
+
       .items {
         border-bottom: dotted thin gray;
         padding: 5px;
+
+        .create-ingredient {
+          float: right;
+          background-color: tomato;
+          text-decoration: none;
+          border-radius: 100%;
+          color: black;
+          border: solid thin gray;
+        }
+
+        .delete-ingredient {
+          float: right;
+          text-decoration: none;
+          border-radius: 100%;
+          color: gray;
+          border: solid thin gray;
+        }
+      }
+      .delete-items {
+        border: solid thin black;
+        color: black;
+        float: right;
+        margin-top: 5px;
+
+        a {
+          background-color: lightgray;
+          text-decoration: none;
+          color: black;
+        }
+        
       }
     }
     

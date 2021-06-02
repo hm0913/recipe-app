@@ -21,4 +21,6 @@ class Recipe < ApplicationRecord
       Recipe.order("created_at DESC")
     end
   end
+
+  has_many :buy_items
 end

@@ -9,9 +9,11 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :recipes, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
   def favorited_by?(recipe_id)
     favorites.where(recipe_id: recipe_id).exists?
   end
+  
   has_many :comments, dependent: :destroy
 
   def self.guest
@@ -19,6 +21,16 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲスト"
     end
+  end
+
+  has_many :buy_items
+
+  def checked_by?(ingredient_id)
+    buy_items.where(ingredient_id: ingredient_id).exists?
+  end
+
+  def examined_by?(recipe_id)
+    buy_items.where(recipe_id: recipe_id).exists?
   end
 
 end

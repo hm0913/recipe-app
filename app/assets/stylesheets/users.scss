@@ -98,10 +98,11 @@
 }
 
 .guest {
+  background-color: orange;
   margin: 0 auto;
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
+  width: 400px;
+  height: 60px;
+  line-height: 60px;
   border: solid thin black;
   text-align: center;
   margin-top: 50px;
@@ -109,7 +110,7 @@
   a {
     text-decoration: none;
     color: black;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bolder;  
   }
 }
