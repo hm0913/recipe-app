@@ -1,24 +1,29 @@
-# README
+# My kitchen
+買い忘れ防止機能付きのレシピ投稿アプリです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 作成した目的
+料理を作る際、材料の買い忘れがないよう、レシピサイトを見ながらチェックできる機能がほしいと思い作成しました。
 
-Things you may want to cover:
+## URL
+http://13.112.175.14/users/sign_in
 
-* Ruby version
+## 使用技術
+* Haml
+* Sass
+* ruby 2.5.1
+* Ruby on Rails 5.2.4
+* MySQL 5.6.51
+* Nginx
+* Capistrano
+* AWS
+    - S3
+    - EC2
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 機能一覧
+* ユーザー登録/ログイン機能
+* レシピの新規投稿/表示/更新/削除
+* 材料の買い物チェック機能
+* 絞り込み機能(カテゴリー/サービング)
+* レシピの検索機能
+* お気に入り機能
+* コメント投稿機能
