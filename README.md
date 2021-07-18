@@ -13,6 +13,7 @@ http://13.112.175.14/users/sign_in
 * ruby 2.5.1
 * Ruby on Rails 5.2.4
 * MySQL 5.6.51
+* Rspec
 * Nginx
 * Capistrano
 * AWS
