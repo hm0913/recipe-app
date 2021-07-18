@@ -13,10 +13,7 @@
         = button_to "レシピを書く", new_recipe_path, method: :get, class: "create-btn"
         = button_to "お気に入り", favorites_path, method: :get, class: "favorite-btn"
       - else
-        
-
-
-
+      
 .user-recipes
   = "#{@user.name}さんの新着レシピ"
   .user-recipes__list
