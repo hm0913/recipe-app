@@ -11,10 +11,7 @@ class BuyItemsController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
-
-
   private
-
   def buy_item_params
     params.require(:buy_item).permit(:user_id, :recipe_id, :ingredient_id)
   end

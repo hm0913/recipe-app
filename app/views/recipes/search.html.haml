@@ -14,7 +14,6 @@
             = icon("far", "heart", class: "like-btn")
             .like-count
               = r.favorites.count
-
       .r-image
         - if r.image?
           = image_tag r.image.thumb.url
