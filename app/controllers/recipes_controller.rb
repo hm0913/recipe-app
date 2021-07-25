@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :set_book, only: [:edit, :update, :destroy, :show]
   
   def index
     @recipes = Recipe.order("created_at DESC")
@@ -9,8 +10,7 @@ class RecipesController < ApplicationController
     @categorys = Category.all
     @orders = Order.all
     @recipe.ingredients.build
-    @recipe.makes.build
-    
+    @recipe.makes.build 
   end
 
   def create
@@ -23,13 +23,11 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
     @categorys = Category.all
     @orders = Order.all
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     if @recipe.update(update_recipe_params)
       redirect_to root_path, notice: "メニュー内容を編集しました。"
     else
@@ -38,7 +36,6 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     if @recipe.destroy
       redirect_to root_path, notice: "メニューを削除しました。"
@@ -48,7 +45,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
     @comment = Comment.new
     @comments = @recipe.comments.includes(:user)
   end
@@ -63,6 +59,10 @@ class RecipesController < ApplicationController
     else
       @recipe = Recipe.where(serving_id: params[:id])
     end
+  end
+
+  def set_book
+    @recipe = Recipe.find(params[:id])
   end
 
   private

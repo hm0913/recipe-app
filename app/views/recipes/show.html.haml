@@ -22,7 +22,6 @@
               = icon("far", "heart", class: "like-btn")
             .like-count
               = @recipe.favorites.count
-    
   .recipe-category
     = @recipe.category.name
   .recipe-name
@@ -31,17 +30,13 @@
     = @recipe.introduction
   .recipe-image
     = image_tag @recipe.image.thumb.url
-  
-
     .ingredient
       [材料]
       = "(#{@recipe.serving_id}人分)"
-
       - for ingredient in @recipe.ingredients
         .items
           = ingredient.name
           = ingredient.amount
-          
           - if current_user.checked_by?(ingredient.id)
             = link_to "済", destroy_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :delete, class: "create-ingredient"
           - else
@@ -49,16 +44,12 @@
       .delete-items 
         - if current_user.examined_by?(ingredient.recipe.id)
           = link_to "全て未購入にする", destroy_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :delete, class: "delete-all"
-            
-          
-
   .recipe-make
     [作り方]
     - @recipe.makes.each do |make|
       .content
         = "<#{make.order_id}>"
         = make.sentence
-
 .comments
   .comments-form
     = form_with model: [@recipe, @comment], local: true do |f|
@@ -66,7 +57,6 @@
         = f.text_area :text, placeholder: "コメントする"
       .c-sub
         = f.submit "送信"
-
   .comments-form__text-all
     %h4
       ＜コメント一覧＞
@@ -85,6 +75,5 @@
               = icon("fas", "trash-alt", class: "des-btn") 
     - else
       = "まだコメントがありません" 
-
 .back
   = button_to "レシピ一覧に戻る", root_path, method: :get
