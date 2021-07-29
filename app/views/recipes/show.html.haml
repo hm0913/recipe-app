@@ -1,9 +1,9 @@
 .recipe
   - if user_signed_in? && current_user.id == @recipe.user_id
-    .recipe-edit
+    .recipe-link
       = link_to edit_recipe_path(@recipe.id), method: :get do
         = icon("fas", "edit", class: "edit-btn")
-    .recipe-delete
+    .recipe-link
       = link_to "#{@recipe.id}", data: {confirm: "本当に#{@recipe.name}を削除しますか？"}, method: :delete do
         = icon("fas", "trash-alt", class: "delete-btn")
   -else
@@ -11,7 +11,7 @@
       = link_to "#{@recipe.user.name}さんのレシピ", user_path(@recipe.user_id)
       .recipe-like
         - if current_user.favorited_by?(@recipe.id)
-          .unlike
+          .like
             = link_to destroy_favorite_path(@recipe), method: :delete do
               = icon("fas", "heart", class: "unlike-btn")
             .like-count
@@ -72,7 +72,7 @@
           .destroy-btn
           - if c.user == current_user
             = link_to recipe_comment_path(@recipe, c), method: :delete do
-              = icon("fas", "trash-alt", class: "des-btn") 
+              = icon("fas", "trash-alt", class: "btn") 
     - else
       = "まだコメントがありません" 
 .back

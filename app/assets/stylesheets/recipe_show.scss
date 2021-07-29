@@ -3,25 +3,17 @@
   border: solid thin gray;
   margin: 0 auto;
   padding: 20px;
-
   &-category {
     border: solid medium red ;
-    border-radius: 30px;
+    border-radius: 50px;
+    height: 15px;
     width: 20%;
     background-color: salmon;
     text-align: center;
-
   }
-
   &-name {
-    font-size: 40px;
-    margin: 2px;
+    font-size: 3rem;
   }
-
-  &-introduction {
-    margin: 2px;
-  }
-
   .user-name {
     text-align: right;
     a {
@@ -29,75 +21,49 @@
       color: gray;
     }
   }
-
-  .unlike {
+  .like {
     text-align: right;
     .unlike-btn {
       color: palevioletred;
-      padding: 5px;
     }
-
-  }
-  .like {
     .like-btn {
       color: gray;
+    }
+    .like-count {
+      float: right;
+      color: gray;
+    }
+  }
+  .recipe-link {
+    .edit-btn {
+      font-size: 1.5rem;
+      color: gray;
+      float: right;
       padding: 5px;
     }
-  }
-
-  .like-count {
-    float: right;
-    color: gray;
-    padding: 5px;
-  }
-
-  .recipe-edit {
-    float: left;
-    width: 95%;
-    text-align: right;
-
-    .edit-btn {
-      font-size: 20px;
-      color: gray;
-    }
-  }
-
-  .recipe-delete {
-    text-align: right;
-
     .delete-btn {
-      font-size: 20px;
+      font-size: 1.5rem;
       color: gray;
+      float: right;
+      padding: 5px;
+
     }
-
   }
-
-  
-
-  
-
-  
-
   &-image {
     display: flex;
     justify-content: space-around;
     margin: 10px;
-
     img {
       object-fit: cover;
       height: 300px;
       width: 300px;
     }
     .ingredient {
-      height: 280px;
-      width: 280px;
+      width: 50%;
       border: solid thin gray;
-      padding: 10px;
-
       .items {
         border-bottom: dotted thin gray;
         padding: 5px;
-
         .create-ingredient {
           float: right;
           background-color: tomato;
@@ -106,7 +72,6 @@
           color: black;
           border: solid thin gray;
         }
-
         .delete-ingredient {
           float: right;
           text-decoration: none;
@@ -120,28 +85,30 @@
         color: black;
         float: right;
         margin-top: 5px;
-
         a {
           background-color: lightgray;
           text-decoration: none;
           color: black;
         }
-        
       }
     }
-    
   }
   &-make {
     border: solid thin gray;
-    width: 600px;
-    padding: 10px;
+    width: 100%;
     margin: 0 auto;
-
     .content {
       padding: 10px;
       border-bottom: dotted thin gray;
     }
-    
   }
+}
 
+@media (max-width: 519px) {
+  .recipe {
+    width: calc(100vh - 40px);
+    &-name {
+      font-size: 2rem;
+    }
+  }
 }

@@ -8,13 +8,11 @@
   border: solid thin black;
   margin-top: 10px;
   .comments-form {
-    
     .c-area {
-      width: 740px;
+      width: 100%;
       text-align: center;
       textarea {
-        width: 600px;
-        height: 50px;
+        width: 90%;
         margin-top: 20px;
       }
     }
@@ -22,25 +20,22 @@
       text-align: center;
       padding: 10px;
       input {
-        width: 500px;
+        width: 30%;
         background-color: ivory;
         font-weight: bolder;
       }
     }
-  
     &__text-all {
-      width: 600px;
+      width: 700px;
       font-size: 15px;
       word-wrap: break-word;
       margin: 0 auto;
-
       &__list {
         margin: 5px;
         border-bottom: solid thin gray;
         padding: 5px;
-        width: 550px;
+        width: 680px;
         display: flex;
-        
         .c-image {
           width: 60px;
           height: 60px;
@@ -51,29 +46,29 @@
             border-radius: 50%;
           }
         }
-
         .c-name {
-          width: 450px;
+          width: 680px;
+          word-wrap: break-word;
           a {
             color: black;
             font-weight: bolder;
           }
         }
-
         .c-text {
           padding-top: 3px;
+          width: 600px;
         }
-        
-        .destroy-btn {
-        }
-
-        .des-btn {
+        .btn {
+          background-color: thistle;
           color: gray;
         }
-        
-
       }
-      
     }
+  }
+}
+
+@media (max-width: 519px) {
+  .comments {
+    width: 100vh;
   }
 }
