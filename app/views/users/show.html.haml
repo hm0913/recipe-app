@@ -8,9 +8,9 @@
         = image_tag asset_path('default.png', class: "image")
     .btn
       - if current_user_has?(@user)
-        = button_to "プロフィールの編集", edit_user_registration_path, method: :get, class: "plof-btn"
-        = button_to "レシピを書く", new_recipe_path, method: :get, class: "create-btn"
-        = button_to "お気に入り", favorites_path, method: :get, class: "favorite-btn"
+        = link_to "プロフィールの編集", edit_user_registration_path, method: :get
+        = link_to "レシピを書く", new_recipe_path, method: :get
+        = link_to "お気に入り", favorites_path, method: :get
       - else
 .user-recipes
   = "#{@user.name}さんの新着レシピ"

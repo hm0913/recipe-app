@@ -1,31 +1,31 @@
 .f-recipe
   = form_with model: recipe, local: true do |f|
-    .f-name
+    .f-item
       = f.label :name, "レシピ名"
       .f-text
         = f.text_field :name, class: "recipe-name", autofocus: true, placeholder: "レシピ名"
-    .f-category
+    .f-item
       %p
         = f.label :category, "ジャンル"
         .f-text
           = f.collection_select(:category_id, Category.all, :id, :name, {prompt: "選択してください"})
-    .f-introduction  
+    .f-item 
       %p
         = f.label :introduction, "紹介文"
         .f-text
           = f.text_area :introduction, placeholder: "紹介文"
-    .f-serving
+    .f-item
       %p
         = f.collection_select(:serving_id, Serving.all, :id, :number, {prompt: "選択してください"})
         = f.label :serving, "人分"
-    .f-ingredient
+    .f-item
       材料・分量
       %p
         = f.fields_for :ingredients do |i|
           = render 'ingredient_fields', f: i
           .links
-            =link_to_add_association "+食材を追加", f, :ingredients, class: "ing-add"
-    .f-make
+            =link_to_add_association "+食材を追加", f, :ingredients, class: "make-add"
+    .f-item
       手順・作り方
       %p
         = f.fields_for :makes do |m|

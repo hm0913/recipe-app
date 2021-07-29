@@ -3,120 +3,44 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .f-recipe {
-  width: 500px;
+  width: 700px;
   border: solid thin gray;
   margin: 0 auto;
   padding: 20px;
-
-  .f-name {
-    label {
-      font-size: 13px;
-      font-weight: bolder;
-    }
-    input {
-      width: 400px;
-      border: solid thin black;
-    }
+  select {
+    font-size: 1.3rem;
+    border: solid thin black;
   }
-
-  .f-category {
-    padding: 5px;
-    label {
-      font-size: 13px;
-      font-weight: bolder;
-    }
-    select {
-      width: 150px;
-      border: solid thin black;
-    }
-  }
-
-  .f-introduction {
-    padding: 5px;
-    label {
-      font-size: 13px;
-      font-weight: bolder;
-    }
-    textarea {
-      border: solid thin black;
-      width: 400px;
-      height: 100px;
-    }
-  }
-
-  .f-serving {
-    padding: 5px;
-    label {
-      font-size: 13px;
-      font-weight: bolder;
-    }
-    input {
-      width: 150px;
-      border: solid thin black;
-    }
-  }
-
-  .f-ingredient {
-    font-size: 13px;
-    font-weight: bolder;
-    padding: 5px;
-    label {
-      font-size: 13px;
-      font-weight: bolder;
-    }
-    input {
-      width: 150px;
-      border: solid thin black;
-    }
-
-    .ing-add {
-      text-decoration: none;
-      color: gray;
-      font-size: 13px;
-    }
-
+  .nested-fields {
     .delete-btn {
-      font-size: 13px;
-      color: gray;
       text-decoration: none;
+      font-size: 0.8rem;
+      color: gray;
     }
   }
-
-  .f-make {
-    font-size: 13px;
-    font-weight: bolder;
-    padding: 5px;
-    label {
-      font-size: 20px;
-    }
-    select {
-      border: solid thin black;
-    }
-    textarea {
-      width: 400px;
-      border: solid thin black;
-    }
-
+  .links {
     .make-add {
       text-decoration: none;
       color: gray;
-      font-size: 13px;
-    }
-
-    .delete-btn {
-      text-decoration: none;
-      font-size: 13px;
-      color: gray;
+      font-size: 0.8rem;
     }
   }
-
+  .f-item {
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: bolder;
+    input {
+      font-size: 1.3rem;
+      border: solid thin black;
+    }
+    textarea {
+      border: solid thin black;
+      font-size: 1.3rem;
+    }
+  }
   .f-image {
     padding: 5px;
-    label {
-      font-size: 20px;
-    } 
   }
-
   .f-submit {
     text-align: center;
     padding: 10px;
@@ -124,5 +48,11 @@
       background-color: ivory;
       font-weight: bolder;
     }
+  }
+}
+
+@media (max-width: 519px) {
+  .f-recipe {
+    width: calc(100vh - 40px);
   }
 }

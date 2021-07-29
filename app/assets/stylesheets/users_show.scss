@@ -2,92 +2,108 @@
   width: 900px;
   border: solid thin black;
   margin: 0 auto;
-  // height: 400px;
   padding: 10px;
-  border: solid thin black;
-  
   &__name {
-    font-size: 20px;
     text-align: center;
-    margin-top: 10px;
-
     .image {
-      margin: 0 auto;
       img {
-        margin-top: 10px;
         width: 150px;
         height: 150px;
-        border-radius: 50%;
-        
+        border-radius: 100%;
       }  
     }
   }
-  
-
-  .plof-btn {
-    width: 300px;
+  a {
+    display: flex;
     height: 50px;
-    margin-top: 20px;
-  }
-
-  .create-btn {
-    width: 300px;
-    height: 50px;
-    margin-top: 10px;
-  }
-
-  .favorite-btn {
-    width: 300px;
-    height: 50px;
-    margin-top: 10px;
-  }
-  
+    text-decoration: none;
+    border: solid thin black;
+    padding: 3px;
+    line-height: 50px;
+    text-align: center;
+    display: inline-block;
+    color: black;
+  }  
 }
-
-
 .user-recipes {
   width: 880px;
   border: solid thin black;
   margin: 0 auto;
-  
-  border: solid medium gray;
   font-size: 25px;
   margin-top: 10px;
   padding: 20px;
-
   &__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   &:after {
     content: "";
-    width: 220px;
+    width: 200px;
   }
   &:before {
     content: "";
-    width: 220px;
+    width: 200px;
     order: 1;
   }
-
     .box {
       width: 200px;
       height: 200px;
       text-align: center;
-      margin: 10px;
     }   
     .r-name {
       .rr-name {
-      font-size: 15px;
+      font-size: 1rem;
       text-decoration: none;
       color: black;
       }
     }
     .r-image {
       img {
-        width: 150px;
-        height: 150px;
+        width: 170px;
+        height: 170px;
       }
     }
   }
+}
 
+@media (max-width: 519px) {
+  .user-mypage {
+    width: calc(100vh - 20px);
+  }
+  .user-recipes {
+    width: calc(100vh - 40px);
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    &:after {
+      content: "";
+      width: 140px;
+    }
+    &:before {
+      content: "";
+      width: 140px;
+      order: 1;
+    }
+      .box {
+        width: 140px;
+        height: 140px;
+        text-align: center;
+      }
+      .r-name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        .rr-name {
+          font-size: 0.8rem;
+        }
+      }
+      .r-image {
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+  }
 }
