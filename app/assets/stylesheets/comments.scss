@@ -31,7 +31,6 @@
       word-wrap: break-word;
       margin: 0 auto;
       &__list {
-        margin: 5px;
         border-bottom: solid thin gray;
         padding: 5px;
         width: 680px;
@@ -58,17 +57,45 @@
           padding-top: 3px;
           width: 600px;
         }
-        .btn {
-          background-color: thistle;
-          color: gray;
+        a {
+          .btn {
+            color: gray;
+
+          }
         }
       }
     }
   }
 }
 
-@media (max-width: 519px) {
+@media (max-width: 455px) {
   .comments {
-    width: calc(100vh - 160px);
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .comments-form {
+    &__text-all {
+      max-width: 100%;
+      box-sizing: border-box;
+      &__list {
+        max-width: 100%;
+        box-sizing: border-box;
+        .c-name {
+          max-width: 75%;
+          box-sizing: border-box;
+        }
+        .c-text {
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .c-image {
+          max-width: 30%;
+          img {
+            width: 30%;
+            height: auto;
+          }
+        }
+      }
+    }
   }
 }

@@ -5,18 +5,18 @@
   width: 100%;
   &:after {
     content: "";
-    width: 320px;
+    width: 300px;
   }
   &:before {
     content: "";
-    width: 320px;
+    width: 300px;
     order: 1;
   }
   &__list {
     width: 280px;
     border: solid thin grey;
-    margin: 10px;
-    padding: 10px;
+    margin: 5px;
+    padding: 5px;
     .r-name {
       text-decoration: none;
       color: black;
@@ -60,7 +60,7 @@
   }
 }
 
-@media (max-width: 519px) {
+@media (max-width: 455px) {
   .r-all {
     max-width: 100%;
     &:after {
@@ -73,7 +73,7 @@
       order: 1;
     }
     &__list {
-      width: 100px;
+      width: 20%;
       .r-image {
         img {
           width: 50px;
@@ -83,8 +83,7 @@
       .user-image {
         .user-name {
           word-wrap: break-word;
-          width: 80px;
-          color: aquamarine;
+          width: 80%;
         }
       }
     }

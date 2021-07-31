@@ -51,8 +51,9 @@
   }
 }
 
-@media (max-width: 519px) {
+@media (max-width: 455px) {
   .f-recipe {
     max-width: 100%;
+    box-sizing: border-box;
   }
 }

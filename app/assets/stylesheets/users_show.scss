@@ -66,36 +66,39 @@
   }
 }
 
-@media (max-width: 519px) {
+@media (max-width: 455px) {
   .user-mypage {
     max-width: 100%;
+    box-sizing: border-box;
     &__name {
       .image {
         img {
-          width: 100px;
-          height: 100px;
+          width: 150px;
+          height: 150px;
         }
       }
     }
   }
   .user-recipes {
     max-width: 100%;
+    box-sizing: border-box;
     &__list {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      width: 100%;
     &:after {
       content: "";
-      width: 140px;
+      width: 30%;
     }
     &:before {
       content: "";
-      width: 140px;
+      width: 30%;
       order: 1;
     }
       .box {
-        width: 140px;
-        height: 140px;
+        width: 30%;
+        height: 30%;
         text-align: center;
       }
       .r-name {

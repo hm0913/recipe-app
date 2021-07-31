@@ -102,20 +102,22 @@
   }
 }
 
-@media (max-width: 519px) {
+@media (max-width: 455px) {
   .recipe {
     max-width: 100%;
+    box-sizing: border-box;
     &-name {
       font-size: 2rem;
     }
     &-image {
-      width: 400px;
+      max-width: 100%;
       padding: 3px;
       img {
-        width: 200px;
+        width: 50%;
         height: auto;
       }
       .ingredient {
+        width: 50%;
         font-size: 0.7rem;
       }
     }
