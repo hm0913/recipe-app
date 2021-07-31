@@ -104,7 +104,7 @@
 
 @media (max-width: 519px) {
   .recipe {
-    width: calc(100vh - 200px);
+    max-width: 100%;
     &-name {
       font-size: 2rem;
     }

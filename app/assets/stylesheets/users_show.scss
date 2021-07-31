@@ -68,10 +68,18 @@
 
 @media (max-width: 519px) {
   .user-mypage {
-    width: calc(100vh - 130px);
+    max-width: 100%;
+    &__name {
+      .image {
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
   }
   .user-recipes {
-    width: calc(100vh - 150px);
+    max-width: 100%;
     &__list {
       display: flex;
       flex-wrap: wrap;

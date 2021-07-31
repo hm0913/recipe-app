@@ -102,9 +102,9 @@
 
 @media (max-width: 519px) {
   .area {
-    width: calc(100vh - 100px);
+    max-width: 100%;
   }
   .guest {
-    width: calc(100vh - 100px);
+    max-width: 100%;
   }
 }
