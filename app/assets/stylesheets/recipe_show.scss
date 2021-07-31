@@ -46,13 +46,11 @@
       color: gray;
       float: right;
       padding: 5px;
-
     }
   }
   &-image {
     display: flex;
     justify-content: space-around;
-    margin: 10px;
     img {
       object-fit: cover;
       height: 300px;
@@ -106,9 +104,20 @@
 
 @media (max-width: 519px) {
   .recipe {
-    width: calc(100vh - 40px);
+    width: calc(100vh - 200px);
     &-name {
       font-size: 2rem;
+    }
+    &-image {
+      width: 400px;
+      padding: 3px;
+      img {
+        width: 200px;
+        height: auto;
+      }
+      .ingredient {
+        font-size: 0.7rem;
+      }
     }
   }
 }

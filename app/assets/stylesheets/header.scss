@@ -80,7 +80,7 @@ header {
 
 @media (max-width: 519px) {
   header {
-    width: 100vh;
+    width: calc(100vh - 100px);
     .header-title {
       font-size: 2rem;
     }
@@ -89,9 +89,14 @@ header {
         font-size: small;
       }
     }
+    .search-form {
+      input {
+        width: 50%;
+      }
+    }
     .header-btn {
       a {
-        display: flex;
+        font-size: 0.7rem;
       }
     }
   }

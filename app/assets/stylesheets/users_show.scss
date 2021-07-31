@@ -1,5 +1,5 @@
 .user-mypage {
-  width: 900px;
+  width: 700px;
   border: solid thin black;
   margin: 0 auto;
   padding: 10px;
@@ -68,10 +68,10 @@
 
 @media (max-width: 519px) {
   .user-mypage {
-    width: calc(100vh - 20px);
+    width: calc(100vh - 130px);
   }
   .user-recipes {
-    width: calc(100vh - 40px);
+    width: calc(100vh - 150px);
     &__list {
       display: flex;
       flex-wrap: wrap;

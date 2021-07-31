@@ -62,7 +62,8 @@
 
 @media (max-width: 519px) {
   .r-all {
-    width: 100vh;
+    background-color: violet;
+    width: 100%;
     &:after {
       content: "";
       width: 140px;
