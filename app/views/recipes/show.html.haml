@@ -10,18 +10,8 @@
     .user-name
       = link_to "#{@recipe.user.name}さんのレシピ", user_path(@recipe.user_id)
       .recipe-like
-        - if current_user.favorited_by?(@recipe.id)
-          .like
-            = link_to destroy_favorite_path(@recipe), method: :delete do
-              = icon("fas", "heart", class: "unlike-btn")
-            .like-count
-              = @recipe.favorites.count
-        - else
-          .like
-            = link_to create_favorite_path(@recipe), method: :POST do
-              = icon("far", "heart", class: "like-btn")
-            .like-count
-              = @recipe.favorites.count
+        %div{id: "likes_buttons_#{@recipe.id}"}
+          = render 'favorite', {r: @recipe}
   .recipe-category
     = @recipe.category.name
   .recipe-name
