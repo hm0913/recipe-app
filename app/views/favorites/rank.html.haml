@@ -12,5 +12,10 @@
         = image_tag recipe.image.thumb.url
         .rank-introduction
           = recipe.introduction
-      .user-name
-        = recipe.user.name
+      .user-image
+        - if recipe.user.image?
+          = image_tag recipe.user.image.thumb.url
+        - else
+          = image_tag asset_path('default.png')
+        .user-name
+          = link_to "#{recipe.user.name}", user_path(recipe.user.id)

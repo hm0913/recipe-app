@@ -61,6 +61,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def top
+    @recipes = Recipe.order("created_at DESC").first(4)
+    @rank = Recipe.find(Favorite.group(:recipe_id).order('count(recipe_id) DESC').pluck(:recipe_id)).first(4)
+  end
+
   def set_book
     @recipe = Recipe.find(params[:id])
   end

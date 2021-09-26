@@ -3,13 +3,14 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  root to: 'recipes#index'
+  root to: 'recipes#top'
   resources :users, only: [:index, :show]
   resources :recipes do
     collection do
       get 'search'
     end
   end
+  get 'top', to: 'recipes#top', as: 'top_recipe'
   post 'favorite/:id', to: 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id', to: 'favorites#destroy', as: 'destroy_favorite'
   resources :favorites, only: [:index]
