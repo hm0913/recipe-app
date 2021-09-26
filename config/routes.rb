@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'favorite/:id', to: 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id', to: 'favorites#destroy', as: 'destroy_favorite'
   resources :favorites, only: [:index]
+  get 'favorite', to: 'favorites#rank', as: 'rank_favorite'
 
   resources :recipes do
     resources :comments, only: [:create, :destroy]

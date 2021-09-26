@@ -11,7 +11,7 @@
       = link_to "#{@recipe.user.name}さんのレシピ", user_path(@recipe.user_id)
       .recipe-like
         %div{id: "likes_buttons_#{@recipe.id}"}
-          = render 'favorite', {r: @recipe}
+          = render "favorite", {r: @recipe}
   .recipe-category
     = @recipe.category.name
   .recipe-name
@@ -27,10 +27,9 @@
         .items
           = ingredient.name
           = ingredient.amount
-          - if current_user.checked_by?(ingredient.id)
-            = link_to "済", destroy_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :delete, class: "create-ingredient"
-          - else
-            = link_to "済", create_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :post, class: "delete-ingredient"
+          %div{id: "item_buttons_#{ingredient.id}"}
+            = render "item", {ingredient: ingredient}
+
       .delete-items 
         - if current_user.examined_by?(ingredient.recipe.id)
           = link_to "全て未購入にする", destroy_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :delete, class: "delete-all"
