@@ -13,6 +13,10 @@ class FavoritesController < ApplicationController
     Favorite.find_by(user_id: current_user.id, recipe_id: params[:id]).destroy
   end
 
+  def rank
+    @rank = Recipe.find(Favorite.group(:recipe_id).order('count(recipe_id) DESC').pluck(:recipe_id))
+  end
+
   private
   def set_recipe
     @recipe = Recipe.find(params[:id])

@@ -1,0 +1,47 @@
+.rank-list {
+  width: 700px;
+  margin: 0 auto;
+  .rank-box {
+    padding: 5px;
+    margin: 5px;
+    border: solid thin gray;
+    width: auto;
+    .rank-int {
+      font-size: smaller;
+    }
+    .rank-name {
+      a {
+        font-weight: bolder;
+        color: black;
+        text-decoration: none;
+      }
+      .like {
+        float: right;
+      }
+      .like-count {
+        float: right;
+      }
+      .like-btn {
+        color: gray;
+      }
+      .unlike-btn {
+        color: palevioletred;
+      }
+    }
+    .rank-image {
+      display: flex;
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      .rank-introduction {
+        font-size: small;
+        width: auto;
+        word-wrap: break-word;
+      } 
+    }
+    .user-name {
+      font-size: smaller;
+    }
+  }
+}
