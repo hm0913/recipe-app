@@ -1,0 +1,43 @@
+.box
+  .trouble-title
+    = @trouble.title
+    .destroy-btn
+      - if user_signed_in? && current_user.id == @trouble.user_id
+        = link_to "削除", trouble_path(@trouble.id), data: {confirm: "本当に削除しますか？"},  method: :delete
+  .user-image
+    - if @trouble.user.image?
+      = image_tag @trouble.user.image.thumb.url
+    - else
+      = image_tag asset_path('default.png')
+    .user-name
+      = @trouble.user.name
+      .time
+        = @trouble.created_at.strftime("%Y/%m/%d %H:%M:%S")
+  .trouble-content
+    = @trouble.content
+  .answer-form
+    = form_with model: [@trouble, @answer], local: true do |answer|
+      .answer-text
+        = answer.text_area :text, placeholder: "相談に対するコメントをご記入ください"
+      .answer-submit
+        = answer.submit "回答する"
+
+  .answer-box
+    - if @answers.present?
+      - @answers.order(created_at: :desc).each do |answer|
+        .answer-list
+          .user-image
+            - if answer.user.image?
+              = image_tag answer.user.image.thumb.url
+            - else
+              = image_tag asset_path('default.png')
+            .user-name
+              = link_to "#{answer.user.name}", user_path(answer.user_id)
+              .time
+                = answer.created_at.strftime("%Y/%m/%d %H:%M:%S")
+                - if user_signed_in? && current_user.id == answer.user_id
+                  = link_to "削除", trouble_answer_path(answer.id), data: {confirm: "本当に削除しますか？"},  method: :delete
+          .answer-content
+            = answer.text
+    - else
+      = "まだ回答がありません"

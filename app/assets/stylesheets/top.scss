@@ -5,6 +5,16 @@
     font-size: x-large;
     padding: 5px;
   }
+  a {
+    font-size: smaller;
+    font-weight: lighter;
+    border: solid thin gray;
+    background-color: palevioletred;
+    color: black;
+    float: right;
+    text-decoration: none;
+    padding: 5px;
+  }
 }
 .top-list {
   width: 700px;

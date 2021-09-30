@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   root to: 'recipes#top'
   resources :users, only: [:index, :show]
   resources :recipes do
+    resources :comments, only: [:create, :destroy]
     collection do
       get 'search'
+    end 
+    member do
+      get 'research'
     end
   end
   get 'top', to: 'recipes#top', as: 'top_recipe'
@@ -16,16 +20,7 @@ Rails.application.routes.draw do
   resources :favorites, only: [:index]
   get 'favorite', to: 'favorites#rank', as: 'rank_favorite'
 
-  resources :recipes do
-    resources :comments, only: [:create, :destroy]
-  end
-
   resources :categories, only: [:show]
-  resources :recipes do
-    member do
-      get 'research'
-    end
-  end
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
@@ -33,5 +28,9 @@ Rails.application.routes.draw do
 
   post 'buy_item/:id', to: 'buy_items#create', as: 'create_buy_item'
   delete 'buy_item/:id', to: 'buy_items#destroy', as: 'destroy_buy_item'
+
+  resources :troubles do
+    resources :answers, only: [:create, :destroy]
+  end
 
 end

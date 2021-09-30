@@ -1,0 +1,86 @@
+// Place all the styles related to the answers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.answer-form {
+  // background-color: slategray;
+  width: 100%;
+  .answer-text {
+    text-align: center;
+    textarea {
+      width: calc(100% - 30px);
+      height: 100px;
+      margin-top: 20px;
+    }
+  }
+  .answer-submit {
+    text-align: center;
+    input {
+      background-color: palevioletred;
+      font-weight: bolder;
+      margin: 10px;
+      height: 50px;
+      width: 200px;
+    }
+  }
+}
+
+.answer-box {
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 50px;
+  .answer-list {
+    border-top: dotted thin gray;
+    padding: 5px;
+    .user-image {
+      // background-color: red;
+      display: flex;
+      img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+      .user-name {
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: smaller;
+        }
+        .time {
+          font-size: smaller;
+        }
+      }
+    }
+    .answer-content {
+    }
+  }
+}
+
+.box {
+  .trouble-title {
+    display: flex;
+    .destroy-btn {
+      a {
+        font-size: small;
+        text-decoration: none;
+        color: gray;
+      }
+    }
+  }
+
+  .user-image {
+    img {
+
+    }
+    .user-name {
+      .time {
+        font-size: smaller;
+      }
+    }
+  }
+
+  .trouble-content {
+  }
+
+}

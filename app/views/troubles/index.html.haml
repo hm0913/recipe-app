@@ -1,0 +1,19 @@
+.word
+  %h1
+    みんなのお悩み一覧
+    = link_to "お悩み相談する", new_trouble_path
+.trouble-list
+  - @troubles.each do |trouble|
+    .trouble-box
+      .trouble-title
+        = link_to "#{trouble.title}", trouble_path(trouble.id)
+      .user-image
+        - if trouble.user.image?
+          = image_tag trouble.user.image.thumb.url
+        - else
+          = image_tag asset_path('default.png')
+        .user-name
+          = link_to "#{trouble.user.name}", user_path(trouble.user.id)
+          .time
+            = trouble.created_at.strftime("%Y/%m/%d %H:%M:%S")
+      
