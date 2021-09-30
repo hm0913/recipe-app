@@ -11,7 +11,7 @@
       = link_to "#{@recipe.user.name}さんのレシピ", user_path(@recipe.user_id)
       .recipe-like
         %div{id: "likes_buttons_#{@recipe.id}"}
-          = render "favorite", {r: @recipe}
+          = render 'favorite', {r: @recipe}
   .recipe-category
     = @recipe.category.name
   .recipe-name
@@ -23,21 +23,32 @@
     .ingredient
       [材料]
       = "(#{@recipe.serving_id}人分)"
-      - for ingredient in @recipe.ingredients
-        .items
-          = ingredient.name
-          = ingredient.amount
-          %div{id: "item_buttons_#{ingredient.id}"}
-            = render "item", {ingredient: ingredient}
 
-      .delete-items 
-        - if current_user.examined_by?(ingredient.recipe.id)
-          = link_to "全て未購入にする", destroy_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :delete, class: "delete-all"
+
+
+      - @ingredient.each do |ingredient|
+        .ingredient
+          = ingredient.name
+          .items
+            = ingredient.amount
+            -# .aaa
+            -#   %div{id: "item_buttons_#{@recipe.id}"}
+            -#     = render 'item', {ingredient: @ingredient}
+            - if current_user.checked_by?(ingredient.id)
+              = link_to "GET!", destroy_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :delete, remote: true, class: "create-ingredient"
+            - else
+              = link_to "GET", create_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :post, remote: true, class: "delete-ingredient"
+            -# .delete-items
+            -#   - if current_user.examined_by?(ingredient.recipe.id)
+            -#     = link_to "全て未購入にする", destroy_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: ingredient.recipe_id, ingredient_id: ingredient.id}), method: :delete, class: "delete-all"
+  
+  
+  
   .recipe-make
     [作り方]
     - @recipe.makes.each do |make|
       .content
-        = "<#{make.order_id}>"
+        = "[#{make.order_id}]"
         = make.sentence
 .comments
   .comments-form
@@ -50,7 +61,7 @@
     %h4
       ＜コメント一覧＞
     - if @comments.present?
-      - @comments.each do |c|
+      - @comments.order('created_at DESC').each do |c|
         .comments-form__text-all__list
           .c-image
             = image_tag c.user.image.thumb.url

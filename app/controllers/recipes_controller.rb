@@ -47,6 +47,7 @@ class RecipesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @recipe.comments.includes(:user)
+    @ingredient = Ingredient.where(recipe_id: params[:id])
   end
 
   def search

@@ -2,7 +2,6 @@
   width: 700px;
   border: solid thin gray;
   margin: 0 auto;
-  padding: 20px;
   &-category {
     border: solid medium red ;
     border-radius: 50px;
@@ -12,7 +11,7 @@
     text-align: center;
   }
   &-name {
-    font-size: 3rem;
+    font-size: xx-large;
   }
   .user-name {
     text-align: right;
@@ -50,15 +49,13 @@
   }
   &-image {
     display: flex;
-    justify-content: space-around;
     img {
       object-fit: cover;
       height: 300px;
       width: 300px;
     }
     .ingredient {
-      width: 50%;
-      border: solid thin gray;
+      width: 70%;
       .items {
         border-bottom: dotted thin gray;
         padding: 5px;
@@ -66,59 +63,156 @@
           float: right;
           background-color: tomato;
           text-decoration: none;
-          border-radius: 100%;
           color: black;
           border: solid thin gray;
         }
         .delete-ingredient {
           float: right;
           text-decoration: none;
-          border-radius: 100%;
           color: gray;
           border: solid thin gray;
         }
       }
       .delete-items {
+        background-color: lightgray;
         border: solid thin black;
         color: black;
         float: right;
-        margin-top: 5px;
+        margin: 5px;
         a {
-          background-color: lightgray;
+          
           text-decoration: none;
           color: black;
+          font-size: smaller;
         }
       }
     }
   }
   &-make {
-    border: solid thin gray;
-    width: 100%;
-    margin: 0 auto;
     .content {
+      font-size: smaller;
       padding: 10px;
-      border-bottom: dotted thin gray;
+      border-top: dotted thin gray;
+    }
+  }
+}
+
+// @media (max-width: 455px) {
+//   .recipe {
+//     max-width: 100%;
+//     box-sizing: border-box;
+//     &-name {
+//       font-size: 2rem;
+//     }
+//     &-image {
+//       max-width: 100%;
+//       padding: 3px;
+//       img {
+//         width: 50%;
+//         height: auto;
+//       }
+//       .ingredient {
+//         width: 50%;
+//         font-size: 0.7rem;
+//       }
+//     }
+//   }
+// }
+
+.comments {
+  width: 700px;
+  margin: 0 auto;
+  border: solid thin black;
+  margin-top: 10px;
+  .comments-form {
+    .c-area {
+      width: 100%;
+      text-align: center;
+      textarea {
+        width: 90%;
+        height: 100px;
+        margin-top: 20px;
+      }
+    }
+    .c-sub {
+      text-align: center;
+      padding: 10px;
+      input {
+        width: 30%;
+        background-color: ivory;
+        font-weight: bolder;
+      }
+    }
+    &__text-all {
+      width: 700px;
+      font-size: 15px;
+      word-wrap: break-word;
+      margin: 0 auto;
+      &__list {
+        border-bottom: solid thin gray;
+        padding: 5px;
+        width: 680px;
+        display: flex;
+        .c-image {
+          width: 60px;
+          height: 60px;
+          margin: 3px;
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+        }
+        .c-name {
+          width: 680px;
+          word-wrap: break-word;
+          a {
+            color: black;
+            font-weight: bolder;
+          }
+        }
+        .c-text {
+          padding-top: 3px;
+          width: 600px;
+        }
+        a {
+          .btn {
+            color: gray;
+
+          }
+        }
+      }
     }
   }
 }
 
 @media (max-width: 455px) {
-  .recipe {
+  .comments {
     max-width: 100%;
     box-sizing: border-box;
-    &-name {
-      font-size: 2rem;
-    }
-    &-image {
+  }
+  .comments-form {
+    &__text-all {
       max-width: 100%;
-      padding: 3px;
-      img {
-        width: 50%;
-        height: auto;
-      }
-      .ingredient {
-        width: 50%;
-        font-size: 0.7rem;
+      box-sizing: border-box;
+      &__list {
+        max-width: 100%;
+        box-sizing: border-box;
+        .c-name {
+          max-width: 75%;
+          box-sizing: border-box;
+        }
+        .c-text {
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .c-image {
+          max-width: 30%;
+          img {
+            width: 30%;
+            height: auto;
+          }
+        }
       }
     }
   }

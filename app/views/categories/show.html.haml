@@ -1,18 +1,25 @@
-.r-all
+.word
+  %h1
+    = "#{@categories.name}のレシピ"
+.top-list
   - @category.order(created_at: :desc).each do |r|
-    .r-all__list
-      = link_to "#{r.name}", recipe_path(r.id), class: "r-name"
-      %div{id: "likes_buttons_#{r.id}"}
-        = render 'recipes/favorite', {r: r}
-      .r-image
-        - if r.image?
-          = image_tag r.image.thumb.url
-        -else
-          = image_tag asset_path('default.png')
-      .user-image
-        - if r.user.image?
-          = image_tag r.user.image.thumb.url
-        - else
-          = image_tag asset_path('default.png')
-        .user-name
-          = link_to "#{r.user.name}", user_path(r.user.id), class: "u-name"
+    .top-box
+      .top-name
+        = link_to "#{r.name}", recipe_path(r.id)
+        .like
+          %div{id: "likes_buttons_#{r.id}"}
+            = render 'recipes/favorite', {r: r}
+        .top-image
+          - if r.image?
+            = image_tag r.image.thumb.url
+          -else
+            = image_tag asset_path('default.png')
+          .top-introduction
+            = r.introduction
+        .user-image
+          - if r.user.image?
+            = image_tag r.user.image.thumb.url
+          - else
+            = image_tag asset_path('default.png')
+          .user-name
+            = link_to "#{r.user.name}", user_path(r.user.id)

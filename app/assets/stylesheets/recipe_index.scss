@@ -1,19 +1,23 @@
 .r-all {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  &:after {
-    content: "";
-    width: 300px;
-  }
-  &:before {
-    content: "";
-    width: 300px;
-    order: 1;
-  }
+  background-color: grey;
+  width: 700px;
+  margin: 0 auto;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+  // width: 100%;
+  // &:after {
+  //   content: "";
+  //   width: 300px;
+  // }
+  // &:before {
+  //   content: "";
+  //   width: 300px;
+  //   order: 1;
+  // }
   &__list {
-    width: 280px;
+    // width: 280px;
+    background-color: honeydew;
     border: solid thin grey;
     margin: 5px;
     padding: 5px;
@@ -36,8 +40,8 @@
     }
     .r-image {
       img {
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
       }
     }
     .user-image {

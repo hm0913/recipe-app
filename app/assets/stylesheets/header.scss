@@ -2,30 +2,38 @@ header {
   height: 150px;
   width: 100%;
   .header-title {
-    height: 50%;
-    width: 25%;
+    // background-color: chartreuse;
+    margin-top: 20px;
+    height: 50px;
+    width: 23%;
     text-align: center;
     float: left;
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 3rem;
+    // align-items: center;
+    font-size: 2.8rem;
+    font-weight: bolder;
     .title {
       text-decoration: none;
       color: black;
     }
   }
   .navigation-bar {
+    // background-color: cornflowerblue;
+    margin-top: 20px;
     float: left;
     display: flex;
-    height: 50%;
-    width: 25%;
-    margin-top: 30px;
+    height: 50px;
+    width: 45%;
+    line-height: 50px;
+    text-align: center;
     .navigation-category {
+      border-bottom: solid thin gray;
       list-style: none;
+      margin: 5px;
       width: 300px;
       text-align: center;
-      font-size: 1.5rem;
+      font-size: smaller;
       .navigation-list {
         .list {
           text-decoration: none;
@@ -37,7 +45,6 @@ header {
           width: 12%;
           position: absolute;
           .category-item {
-            padding: 5px;
             background-color: ivory;
             list-style: none;
             .item {
@@ -53,27 +60,42 @@ header {
     }
   }
   .search-form {
-    height: 50%;
-    width: 25%;
+    margin-top: 20px;
+    height: 50px;
+    width: 20%;
     float: left;
-    margin-top: 30px;
+    line-height: 50px;
+    text-align: center;
     input {
       width: 70%;
+      border-top: none;
+      border-left: none;
+      border-right: none;
     }
     button {
       width: 20%;
     }
   }
   .header-btn {
-    height: 50%;
-    width: 25%;
-    margin-top: 30px;
-    float: left;
-    a {
-      color: black;
-      text-decoration: none;
-      border: solid thin gray;
-      float: right;
+    // background-color: yellow;
+    margin-top: 20px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 10%;
+    float: right;
+    display: flex;
+    .sign-out-btn {
+      // background-color: red;
+      font-size: x-large;
+      padding: 10px;
+      color: gray;
+    }
+    .user-btn {
+      // background-color: aqua;
+      font-size: x-large;
+      padding: 10px;
+      color: gray;
     }
   }
 }

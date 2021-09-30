@@ -4,7 +4,7 @@
 .navigation-bar
   %ul.navigation-category
     %li.navigation-list
-      = link_to "Category", root_path, class: "list"
+      = link_to "ジャンル", root_path, class: "list"
       .navigation-category__item
         %ul.item-box
           %li.category-item
@@ -22,7 +22,7 @@
 
   %ul.navigation-category
     %li.navigation-list
-      = link_to "Serving", root_path, class: "list"
+      = link_to "人数別", root_path, class: "list"
       .navigation-category__item
         %ul.item-box
           %li.category-item
@@ -36,16 +36,37 @@
           %li.category-item
             = link_to "5人分〜", research_recipe_path(id: 5), class: "item"
 
+  %ul.navigation-category
+    %li.navigation-list
+      = link_to "ランキング", root_path, class: "list"
+      .navigation-category__item
+        %ul.item-box
+          %li.category-item
+            = link_to "人気ランキング", rank_favorite_path, class: "item"
+
+  %ul.navigation-category
+    %li.navigation-list
+      = link_to "お悩み相談", root_path, class: "list"
+      .navigation-category__item
+        %ul.item-box
+          %li.category-item
+            = link_to "お悩み一覧", troubles_path, class: "item"
+
 .search-form
   = form_with url: search_recipes_path, method: :get, local: true do |f|
-    = f.text_field :keyword, placeholder: "レシピ名"
+    = f.text_field :keyword, placeholder: "レシピ名で検索"
     = button_tag do
       = icon("fas", "search")
 
 .header-btn
   - if user_signed_in?
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
-    = link_to "マイページ", "/users/#{current_user.id}", method: :get
+    = link_to "/users/#{current_user.id}", method: :get do
+      = icon("fas", "user-alt", class: "user-btn")
+    = link_to destroy_user_session_path, method: :delete do
+      = icon("fas", "sign-out-alt", class: "sign-out-btn")
+    
   - else
-    = link_to "ログイン", new_user_session_path, method: :get
-    = link_to "新規登録", new_user_registration_path, method: :get
+    = link_to new_user_registration_path, method: :get do
+      = icon("fas", "user-plus", class: "user-btn")
+    = link_to new_user_session_path, method: :get do
+      = icon("fas", "sign-in-alt", class: "sign-out-btn")

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :recipes, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :troubles, dependent: :destroy
 
   def favorited_by?(recipe_id)
     favorites.where(recipe_id: recipe_id).exists?
@@ -32,5 +33,7 @@ class User < ApplicationRecord
   def examined_by?(recipe_id)
     buy_items.where(recipe_id: recipe_id).exists?
   end
+
+  has_many :answers, dependent: :destroy
 
 end
