@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   post 'buy_item/:id', to: 'buy_items#create', as: 'create_buy_item'
   delete 'buy_item/:id', to: 'buy_items#destroy', as: 'destroy_buy_item'
+  delete 'buy_item_all/:id', to: 'buy_items#destroy_all', as: 'destroy_all_buy_item'
 
   resources :troubles do
     resources :answers, only: [:create, :destroy]

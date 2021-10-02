@@ -1,0 +1,118 @@
+@import "config/mixin";
+
+.user-mypage {
+  @include base;
+  border: solid thin black;
+  &__name {
+    text-align: center;
+    font-weight: bolder;
+    .image {
+      width: 500px;
+      padding-top: 20px;
+      padding-left: 200px;
+      display: flex;
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+      }
+      .btn {
+        padding: 30px;
+        .prof-link {
+          padding: 10px;
+          a {
+            @include proflink;
+          }
+        }
+        .write-link {
+          padding: 10px;
+          a {
+            @include proflink;
+          }
+        }
+        .favorite-link {
+          padding: 10px;
+          a {
+            @include proflink;
+          }
+        }
+      }
+    }
+  }
+  .user-recipes {
+    @include base;
+    margin-top: 50px;
+    .top-list {
+      @include base;
+      .top-box {
+        @include mainbox;
+      }   
+      .top-name {
+        a {
+          @include recipe-name;
+        }
+      }
+      .top-image {
+        img {
+          @include basicimage;
+        }
+        .top-introduction {
+          @include recipe-introduction;
+        }
+      }
+    }
+  }
+}
+
+// @media (max-width: 455px) {
+//   .user-mypage {
+//     max-width: 100%;
+//     box-sizing: border-box;
+//     &__name {
+//       .image {
+//         img {
+//           width: 150px;
+//           height: 150px;
+//         }
+//       }
+//     }
+//   }
+//   .user-recipes {
+//     max-width: 100%;
+//     box-sizing: border-box;
+//     &__list {
+//       display: flex;
+//       flex-wrap: wrap;
+//       justify-content: space-between;
+//       width: 100%;
+//     &:after {
+//       content: "";
+//       width: 30%;
+//     }
+//     &:before {
+//       content: "";
+//       width: 30%;
+//       order: 1;
+//     }
+//       .box {
+//         width: 30%;
+//         height: 30%;
+//         text-align: center;
+//       }
+//       .r-name {
+//         overflow: hidden;
+//         white-space: nowrap;
+//         text-overflow: ellipsis;
+//         .rr-name {
+//           font-size: 0.8rem;
+//         }
+//       }
+//       .r-image {
+//         img {
+//           width: 100px;
+//           height: 100px;
+//         }
+//       }
+//     }
+//   }
+// }

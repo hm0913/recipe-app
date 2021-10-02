@@ -1,13 +1,15 @@
 class BuyItemsController < ApplicationController
-  before_action :set_item
+  before_action :set_item, only: [:create, :destroy]
   def create
     BuyItem.create(buy_item_params)
-    redirect_back fallback_location: root_path
   end
 
   def destroy
     buy_item_record = BuyItem.find_by(user_id: buy_item_params[:user_id], recipe_id: buy_item_params[:recipe_id], ingredient_id: buy_item_params[:ingredient_id]).destroy
-    # buy_item_all = BuyItem.where(user_id: buy_item_params[:user_id], recipe_id: buy_item_params[:recipe_id]).destroy_all
+  end
+
+  def destroy_all
+    buy_item_all = BuyItem.where(user_id: buy_item_params[:user_id], recipe_id: buy_item_params[:recipe_id]).destroy_all
     redirect_back fallback_location: root_path
   end
 
@@ -17,6 +19,6 @@ class BuyItemsController < ApplicationController
   end
 
   def set_item
-    # @buy_item = BuyItem.find(buy_item_params[:ingredient_id])
+    @ingredient = Ingredient.find(buy_item_params[:ingredient_id])
   end
 end

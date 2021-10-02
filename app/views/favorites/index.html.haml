@@ -1,10 +1,16 @@
-- if @favorites.present?
-  .r-all
-    - @favorites.each do |f|
-      .r-all__list
-        .r-name
-          = link_to "#{f.recipe.name}", recipe_path(f.recipe.id), class: "r-name"
-          .r-image
-            = image_tag f.recipe.image.thumb.url
-- else
-  = "お気に入り登録中のレシピはありません"
+.tpic
+  %h1
+    あなたのお気に入りレシピ一覧
+.favorite.all
+  - if @favorites.present?
+    .my-favorite
+      - @favorites.order('created_at DESC').each do |favorite|
+        .favorite-list
+          .recipe-name
+            = link_to "#{favorite.recipe.name}", recipe_path(favorite.recipe.id)
+          .recipe-image
+            = image_tag favorite.recipe.image.thumb.url
+          .time
+            = "お気に入り登録日：#{favorite.created_at.strftime("%Y/%m/%d")}"
+  - else
+    = "お気に入り登録中のレシピはありません"

@@ -22,7 +22,7 @@
       - @user.recipes.order(created_at: :desc).each do |r|
         .top-box
           .top-name
-            = link_to "#{r.name}", "/recipes/#{r.id}", class: "rr-name"
+            = link_to "#{r.name}", "/recipes/#{r.id}"
           .top-image
             - if r.image?
               = image_tag r.image.thumb.url

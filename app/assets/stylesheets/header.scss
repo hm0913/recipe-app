@@ -1,16 +1,14 @@
+@import "config/mixin";
+
 header {
   height: 150px;
   width: 100%;
   .header-title {
-    // background-color: chartreuse;
-    margin-top: 20px;
-    height: 50px;
+    @include headbox;
     width: 23%;
-    text-align: center;
     float: left;
     display: flex;
     justify-content: center;
-    // align-items: center;
     font-size: 2.8rem;
     font-weight: bolder;
     .title {
@@ -19,14 +17,11 @@ header {
     }
   }
   .navigation-bar {
-    // background-color: cornflowerblue;
-    margin-top: 20px;
+    @include headbox;
     float: left;
     display: flex;
-    height: 50px;
     width: 45%;
     line-height: 50px;
-    text-align: center;
     .navigation-category {
       border-bottom: solid thin gray;
       list-style: none;
@@ -60,12 +55,10 @@ header {
     }
   }
   .search-form {
-    margin-top: 20px;
-    height: 50px;
+    @include headbox;
     width: 20%;
     float: left;
     line-height: 50px;
-    text-align: center;
     input {
       width: 70%;
       border-top: none;
@@ -77,52 +70,43 @@ header {
     }
   }
   .header-btn {
-    // background-color: yellow;
-    margin-top: 20px;
-    height: 50px;
+    @include headbox;
     line-height: 50px;
-    text-align: center;
     width: 10%;
     float: right;
     display: flex;
     .sign-out-btn {
-      // background-color: red;
-      font-size: x-large;
-      padding: 10px;
-      color: gray;
+      @include headbtn;
     }
     .user-btn {
-      // background-color: aqua;
-      font-size: x-large;
-      padding: 10px;
-      color: gray;
+      @include headbtn;
     }
   }
 }
 
-@media (max-width: 455px) {
-  header {
-    max-width: 100%;
-    .header-title {
-      font-size: 2rem;
-    }
-    .navigation-bar {
-      .navigation-category {
-        font-size: small;
-      }
-    }
-    .search-form {
-      input {
-        width: 60%;
-      }
-      button {
-        width: 20%;
-      }
-    }
-    .header-btn {
-      a {
-        font-size: 0.6rem;
-      }
-    }
-  }
-}
+// @media (max-width: 455px) {
+//   header {
+//     max-width: 100%;
+//     .header-title {
+//       font-size: 2rem;
+//     }
+//     .navigation-bar {
+//       .navigation-category {
+//         font-size: small;
+//       }
+//     }
+//     .search-form {
+//       input {
+//         width: 60%;
+//       }
+//       button {
+//         width: 20%;
+//       }
+//     }
+//     .header-btn {
+//       a {
+//         font-size: 0.6rem;
+//       }
+//     }
+//   }
+// }

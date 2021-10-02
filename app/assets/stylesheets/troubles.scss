@@ -1,11 +1,11 @@
 // Place all the styles related to the troubles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "config/mixin";
 
-
+// お悩み一覧ページ
 .trouble-list {
-  width: 700px;
-  margin: 0 auto;
+  @include base;
   .trouble-box {
     padding: 5px;
     margin: 5px;
@@ -25,15 +25,12 @@
       float: right;
       display: flex;
       img {
-        height:  30px;
-        width: 30px;
-        border-radius: 50%;
+        @include userimage-basic
       }
       .user-name {
-        font-size: smaller;
+        @include user-name;
         a {
-          text-decoration: none;
-          color: black;
+          @include user-name-font;
         }
         .time {
           font-size: smaller;
@@ -46,65 +43,43 @@
   }
 }
 
-.box {
-  width: 700px;
-  margin: 0 auto;
-  border: solid thin gray;
-  .trouble-title {
-    font-size: x-large;
-  }
-  .user-image {
-    display: flex;
-    img {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-    }
-    .user-name {
-      font-size: smaller;
-    }
-  }
-  .trouble-conten {
-    border-bottom: dotted thin gray;
-  }
-}
 
 
-.trouble-box {
-  width: 700px;
-  margin: 0 auto;
-  border: dotted thin gray;
-  padding: 5px;
-  label {
-    font-size: small;
-    font-weight: bolder;
-  }
-  .trouble-title {
-    text-align: center;
-    margin-bottom: 15px;
-    input {
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      width: calc(100% - 20px);
-      height: 30px;
-    }
-  }
-  .trouble-content {
-    margin-top: 15px;
-    text-align: center;
-    textarea {
-      width: calc(100% - 20px);
-      height: 100px;
-    }
-  }
-  .trouble-submit {
-    input {
-      background-color: palevioletred;
-      font-weight: bolder;
-      margin: 10px;
-      height: 50px;
-      width: 200px;
-    }
-  }
-}
+
+// .trouble-box {
+//   @include base;
+//   border: dotted thin gray;
+//   padding: 5px;
+//   label {
+//     font-size: small;
+//     font-weight: bolder;
+//   }
+//   .trouble-title {
+//     text-align: center;
+//     margin-bottom: 15px;
+//     input {
+//       border-top: none;
+//       border-left: none;
+//       border-right: none;
+//       width: calc(100% - 20px);
+//       height: 30px;
+//     }
+//   }
+//   .trouble-content {
+//     margin-top: 15px;
+//     text-align: center;
+//     textarea {
+//       width: calc(100% - 20px);
+//       height: 100px;
+//     }
+//   }
+//   .trouble-submit {
+//     input {
+//       background-color: palevioletred;
+//       font-weight: bolder;
+//       margin: 10px;
+//       height: 50px;
+//       width: 200px;
+//     }
+//   }
+// }

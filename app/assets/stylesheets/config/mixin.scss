@@ -1,0 +1,117 @@
+@mixin mainbox {
+  padding: 5px;
+  margin: 5px;
+  border: solid thin gray;
+  width: auto;
+}
+
+@mixin base {
+  width: 700px;
+  margin: 0 auto;
+}
+
+@mixin headbox {
+  margin-top: 20px;
+  height: 50px;
+  text-align: center;
+}
+
+@mixin headbtn {
+  font-size: x-large;
+  padding: 10px;
+  color: gray;
+}
+
+@mixin create-btn {
+  text-decoration: none;
+  font-size: small;
+  color: gray;
+}
+
+@mixin create-font {
+  font-size: large;
+}
+
+@mixin create-padding {
+  padding: 20px;
+}
+
+@mixin proflink {
+  color: black;
+  border-bottom: solid thin black;
+  text-decoration: none;
+  font-size: smaller;
+}
+
+@mixin basicimage {
+  width: 100px;
+  height: 100px;
+}
+
+@mixin toplink {
+  width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+@mixin toplink-font {
+  display: inline-block;
+  color: gray;
+}
+
+@mixin submit-btn {
+  background-color: palevioletred;
+  font-weight: bolder;
+  margin: 10px;
+  height: 50px;
+  width: 200px;
+}
+
+@mixin recipe-name {
+  font-weight: bolder;
+  color: black;
+  text-decoration: none;
+}
+
+@mixin recipe-introduction {
+  font-size: small;
+  width: auto;
+  word-wrap: break-word;
+}
+
+@mixin user-name {
+  margin: 5px;
+  height: 20px;
+  font-size: smaller;
+}
+
+@mixin user-name-font {
+  font-size: smaller;
+  color: black;
+  text-decoration: none;
+}
+
+@mixin userimage-basic {
+  height: 20px;
+  border-radius: 50%;
+}
+
+@mixin userimage-biger {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+@mixin recipe-btn {
+  font-size: larger;
+  color: gray;
+  float: right;
+  padding: 5px;
+}
+
+@mixin buyitem-btn {
+  float: right;
+  text-decoration: none;
+  border: solid thin gray;
+}
