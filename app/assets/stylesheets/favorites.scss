@@ -1,3 +1,40 @@
 // Place all the styles related to the favorites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "config/mixin";
+
+.tpic {
+  width: 500px;
+  margin: 0 auto;
+  h1 {
+    font-size: x-large;
+    padding: 5px;
+  }
+}
+.my-favorite {
+  width: 500px;
+  margin: 0 auto;
+  .favorite-list {
+    border: solid thin grey;
+    margin: 5px;
+    padding: 5px;
+    .recipe-name {
+      a {
+      text-decoration: none;
+      color: black;
+      font-weight: bolder;
+      font-size: medium;
+      }
+    }  
+    .recipe-image {
+      img {
+        @include basicimage;
+      }
+    }
+    .time {
+      font-size: small;
+      text-align: right;
+    }
+    
+  }
+}

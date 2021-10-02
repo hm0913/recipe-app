@@ -1,6 +1,7 @@
+@import "config/mixin";
+
 .word {
-  width: 700px;
-  margin: 0 auto;
+  @include base;
   h1 {
     font-size: x-large;
     padding: 5px;
@@ -9,7 +10,7 @@
     font-size: smaller;
     font-weight: lighter;
     border: solid thin gray;
-    background-color: palevioletred;
+    background-color: lightpink;
     color: black;
     float: right;
     text-decoration: none;
@@ -17,21 +18,15 @@
   }
 }
 .top-list {
-  width: 700px;
-  margin: 0 auto;
+  @include base;
   .top-box {
-    padding: 5px;
-    margin: 5px;
-    border: solid thin gray;
-    width: auto;
+    @include mainbox;
     .top-int {
       font-size: smaller;
     }
     .top-name {
       a {
-        font-weight: bolder;
-        color: black;
-        text-decoration: none;
+        @include recipe-name;
       }
       .like {
         float: right;
@@ -49,13 +44,69 @@
     .top-image {
       display: flex;
       img {
-        width: 100px;
-        height: 100px;
+        @include basicimage;
       }
       .top-introduction {
-        font-size: small;
-        width: auto;
-        word-wrap: break-word;
+        @include recipe-introduction;
+      } 
+    }
+    .user-image {
+      height: 20px;
+      display: flex;
+      img {
+        @include userimage-basic;
+      }
+    .user-name {
+      @include user-name;
+      a {
+        @include user-name-font;
+      }
+    }
+    }
+  }
+}
+.to-index {
+  @include toplink;
+  a {
+    @include toplink-font
+  }
+}
+
+
+
+
+
+.rank-list {
+  @include base;
+  .rank-box {
+    @include mainbox;
+    .rank-int {
+      font-size: smaller;
+    }
+    .rank-name {
+      a {
+        @include recipe-name;
+      }
+      .like {
+        float: right;
+      }
+      .like-count {
+        float: right;
+      }
+      .like-btn {
+        color: gray;
+      }
+      .unlike-btn {
+        color: palevioletred;
+      }
+    }
+    .rank-image {
+      display: flex;
+      img {
+        @include basicimage;
+      }
+      .rank-introduction {
+        @include recipe-introduction;
       } 
     }
     .user-image {
@@ -66,24 +117,17 @@
         border-radius: 50%;
       }
     .user-name {
-      margin: 5px;
-      height: 20px;
-      font-size: smaller;
+      @include user-name;
       a {
-        font-size: smaller;
-        color: black;
+        @include user-name-font;
       }
     }
     }
   }
 }
-.to-index {
-  text-align: center;
-  width: 700px;
-  margin: 0 auto;
-  padding: 10px;
+.to-rank {
+  @include toplink;
   a {
-    display: inline-block;
-    color: gray;
+    @include toplink-font;
   }
 }
