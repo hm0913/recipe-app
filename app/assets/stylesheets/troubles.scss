@@ -6,6 +6,17 @@
 
 
 // お悩み一覧ページ
+.new-path {
+  @include base;
+  text-align: right;
+  a {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    border: solid thin gray;
+    background-color: lightpink;
+  }
+}
 .trouble-list {
   @include base;
   .trouble-box {
@@ -52,6 +63,7 @@
   max-width: 100%;
 }
 .new-path {
+  max-width: 100%;
   text-align: right;
   a {
     font-size: 20px;
