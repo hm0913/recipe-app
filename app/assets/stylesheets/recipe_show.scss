@@ -1,4 +1,5 @@
 @import "config/mixin";
+@import "config/media";
 
 .recipe {
   @include base;
@@ -37,7 +38,6 @@
   .recipe-link {
     .edit-btn {
       @include recipe-btn;
-      
     }
     .delete-btn {
       @include recipe-btn;
@@ -92,25 +92,101 @@
   }
 }
 
-// @media (max-width: 455px) {
-//   .recipe {
-//     max-width: 100%;
-//     box-sizing: border-box;
-//     &-name {
-//       font-size: 2rem;
-//     }
-//     &-image {
-//       max-width: 100%;
-//       padding: 3px;
-//       img {
-//         width: 50%;
-//         height: auto;
-//       }
-//       .ingredient {
-//         width: 50%;
-//         font-size: 0.7rem;
-//       }
-//     }
-//   }
-// }
+// レスポンシブ
+@include media(sp) {
+  .recipe {
+    max-width: calc(100% - 10px);
+    border: solid thin gray;
+    &-category {
+      border: solid medium red ;
+      border-radius: 50px;
+      height: 15px;
+      width: 20%;
+      background-color: salmon;
+      text-align: center;
+    }
+    &-name {
+      font-size: xx-large;
+    }
+    .recipe-introduction {
+      font-size: smaller;
+    }
+    .user-name {
+      text-align: right;
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+    .like {
+      text-align: right;
+      .unlike-btn {
+        color: palevioletred;
+      }
+      .like-btn {
+        color: gray;
+      }
+      .like-count {
+        float: right;
+        color: gray;
+      }
+    }
+    .recipe-link {
+      .edit-btn {
+        @include recipe-btn;
+      }
+      .delete-btn {
+        @include recipe-btn;
+      }
+    }
+    &-image {
+      display: flex;
+      img {
+        object-fit: cover;
+        height: 150px;
+        width: 150px;
+      }
+      .ingredient {
+        width: 70%;
+        margin-left: 5px;
+        font-size: 15px;
+        .delete-items {
+          background-color: lightgray;
+          border: solid thin black;
+          color: black;
+          float: right;
+          margin: 5px;
+          a { 
+            text-decoration: none;
+            color: black;
+            font-size: smaller;
+          }
+        }
+      .items {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: dotted thin gray;
+        padding: 5px;
+        font-size: smaller;
+        .create-ingredient {
+          @include buyitem-btn;
+          color: gray;
+        }
+        .delete-ingredient {
+          @include buyitem-btn;
+          background-color: tomato;
+          color: black;
+        }
+      }
+      }
+    }
+    &-make {
+      .content {
+        font-size: smaller;
+        padding: 10px;
+        border-top: dotted thin gray;
+      }
+    }
+  }
+}
 

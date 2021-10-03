@@ -1,4 +1,5 @@
 @import "config/mixin";
+@import "config/media";
 
 // お悩みの詳細
 .box {
@@ -53,6 +54,66 @@
       }
     }
     .answer-content {
+    }
+  }
+}
+
+// レスポンシブ
+@include media(sp) {
+  // お悩みの詳細
+  .box {
+    max-width: calc(100% - 10px);
+    border: solid thin gray;
+    .trouble-title {
+      display: flex;
+      font-size: x-large;
+      .destroy-btn {
+        a {
+          font-size: small;
+          text-decoration: none;
+          color: gray;
+        }
+      }
+    }
+    .user-image {
+      display: flex;
+      img {
+        @include userimage-biger;
+      }
+      .user-name {
+        font-size: smaller;
+      }
+    }
+    .trouble-conten {
+      border-bottom: dotted thin gray;
+    }
+  }
+
+  // 解決案の詳細
+  .answer-box {
+    max-width: calc(100% - 10px);
+    margin-top: 50px;
+    .answer-list {
+      border-top: dotted thin gray;
+      padding: 5px;
+      .user-image {
+        display: flex;
+        img {
+          @include userimage-biger
+        }
+        .user-name {
+          a {
+            text-decoration: none;
+            color: black;
+            font-size: smaller;
+          }
+          .time {
+            font-size: smaller;
+          }
+        }
+      }
+      .answer-content {
+      }
     }
   }
 }

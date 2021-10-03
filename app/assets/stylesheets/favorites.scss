@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "config/mixin";
+@import "config/media";
 
 .tpic {
   width: 500px;
@@ -35,6 +36,44 @@
       font-size: small;
       text-align: right;
     }
-    
+  }
+}
+
+// レスポンシブ
+@include media(sp) {
+  .tpic {
+    max-width: calc(100% - 10px);
+    margin: 0 auto;
+    h1 {
+      font-size: x-large;
+      padding: 5px;
+    }
+  }
+  .my-favorite {
+    max-width: 100%;
+    margin: 0 auto;
+    .favorite-list {
+      border: solid thin grey;
+      margin: 5px;
+      padding: 5px;
+      .recipe-name {
+        a {
+        text-decoration: none;
+        color: black;
+        font-weight: bolder;
+        font-size: medium;
+        }
+      }  
+      .recipe-image {
+        img {
+          @include basicimage;
+        }
+      }
+      .time {
+        font-size: small;
+        text-align: right;
+      }
+      
+    }
   }
 }

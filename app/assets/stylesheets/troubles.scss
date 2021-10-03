@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "config/mixin";
+@import "config/media";
+
 
 // お悩み一覧ページ
 .trouble-list {
@@ -43,43 +45,58 @@
   }
 }
 
-
-
-
-// .trouble-box {
-//   @include base;
-//   border: dotted thin gray;
-//   padding: 5px;
-//   label {
-//     font-size: small;
-//     font-weight: bolder;
-//   }
-//   .trouble-title {
-//     text-align: center;
-//     margin-bottom: 15px;
-//     input {
-//       border-top: none;
-//       border-left: none;
-//       border-right: none;
-//       width: calc(100% - 20px);
-//       height: 30px;
-//     }
-//   }
-//   .trouble-content {
-//     margin-top: 15px;
-//     text-align: center;
-//     textarea {
-//       width: calc(100% - 20px);
-//       height: 100px;
-//     }
-//   }
-//   .trouble-submit {
-//     input {
-//       background-color: palevioletred;
-//       font-weight: bolder;
-//       margin: 10px;
-//       height: 50px;
-//       width: 200px;
-//     }
-//   }
-// }
+// レスポンシブ
+@include media(sp) {
+  // お悩み一覧ページ
+.word {
+  max-width: 100%;
+}
+.new-path {
+  text-align: right;
+  a {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    border: solid thin gray;
+    background-color: lightpink;
+  }
+}
+.trouble-list {
+  max-width: 100%;
+  .trouble-box {
+    padding: 5px;
+    margin: 5px;
+    border: solid thin gray;
+    width: auto;
+    height: 60px;
+    .trouble-title {
+      width: 300px;
+      a {
+        font-weight: bolder;
+        text-decoration: none;
+        color: black;
+        float: left;
+      }
+    }
+    .user-image {
+      float: right;
+      display: flex;
+      img {
+        @include userimage-basic
+      }
+      .user-name {
+        @include user-name;
+        a {
+          @include user-name-font;
+        }
+        .time {
+          font-size: smaller;
+        }
+      }
+    }
+    .trouble-content {
+      background-color: palevioletred;
+    }
+  }
+}
+}

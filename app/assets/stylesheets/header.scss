@@ -1,4 +1,5 @@
 @import "config/mixin";
+@import "config/media";
 
 header {
   height: 150px;
@@ -84,29 +85,92 @@ header {
   }
 }
 
-// @media (max-width: 455px) {
-//   header {
-//     max-width: 100%;
-//     .header-title {
-//       font-size: 2rem;
-//     }
-//     .navigation-bar {
-//       .navigation-category {
-//         font-size: small;
-//       }
-//     }
-//     .search-form {
-//       input {
-//         width: 60%;
-//       }
-//       button {
-//         width: 20%;
-//       }
-//     }
-//     .header-btn {
-//       a {
-//         font-size: 0.6rem;
-//       }
-//     }
-//   }
-// }
+// レスポンシブ
+@include media(sp) {
+  header {
+    height: 200px;
+    max-width: 100%;
+    .header-title {
+      @include headbox;
+      width: 20%;
+      float: left;
+      display: flex;
+      font-size: 15px;
+      font-weight: bolder;
+      .title {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .navigation-bar {
+      @include headbox;
+      float: left;
+      display: flex;
+      width: 80%;
+      line-height: 50px;
+      .navigation-category {
+        border-bottom: solid thin gray;
+        list-style: none;
+        margin: 5px;
+        width: 300px;
+        text-align: center;
+        font-size: 5px;
+        .navigation-list {
+          .list {
+            text-decoration: none;
+            color: black;
+          }
+        }
+          .item-box {
+            visibility: hidden;
+            width: 60px;
+            position: absolute;
+            .category-item {
+              background-color: ivory;
+              list-style: none;
+              width: 60px;
+              .item {
+                text-decoration: none;
+                color: black;
+              }
+            }
+          } 
+      }
+      .navigation-category:hover .item-box {
+        visibility: visible;
+        border: solid thin gray;
+      }
+    }
+    .search-form {
+      @include headbox;
+      width: 75%;
+      float: left;
+      line-height: 50px;
+      input {
+        width: 70%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+      button {
+        width: 20%;
+      }
+    }
+    .header-btn {
+      @include headbox;
+      justify-content: space-around;
+      width: 20%;
+      float: left;
+      .sign-out-btn {
+        font-size: 20px;
+        padding: 5px;
+        color: gray;
+      }
+      .user-btn {
+        font-size: 20px;
+        padding: 5px;
+        color: gray;
+      }
+    }
+  }
+}

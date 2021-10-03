@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "config/mixin";
+@import "config/media";
 
 .comments {
   @include base;
@@ -63,34 +64,65 @@
   }
 }
 
-// @media (max-width: 455px) {
-//   .comments {
-//     max-width: 100%;
-//     box-sizing: border-box;
-//   }
-//   .comments-form {
-//     &__text-all {
-//       max-width: 100%;
-//       box-sizing: border-box;
-//       &__list {
-//         max-width: 100%;
-//         box-sizing: border-box;
-//         .c-name {
-//           max-width: 75%;
-//           box-sizing: border-box;
-//         }
-//         .c-text {
-//           max-width: 100%;
-//           box-sizing: border-box;
-//         }
-//         .c-image {
-//           max-width: 30%;
-//           img {
-//             width: 30%;
-//             height: auto;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+// レスポンシブ
+@include media(sp) {
+  .comments {
+    max-width: calc(100% - 10px);
+    border: solid thin black;
+    margin-top: 10px;
+    .comments-form {
+      .c-area {
+        width: 100%;
+        text-align: center;
+        textarea {
+          width: 90%;
+          height: 100px;
+          margin-top: 20px;
+        }
+      }
+      .c-sub {
+        text-align: center;
+        padding: 10px;
+        input {
+          @include submit-btn;
+        }
+      }
+      &__text-all {
+        max-width: 100%;
+        font-size: 15px;
+        word-wrap: break-word;
+        margin: 0 auto;
+        &__list {
+          max-width: 90%;
+          border-bottom: solid thin gray;
+          padding: 5px;
+          display: flex;
+          .c-image {
+            margin: 3px;
+            img {
+              @include userimage-biger
+            }
+          }
+          .c-name {
+            max-width: 80%;
+            word-wrap: break-word;
+            a {
+              color: black;
+              font-weight: bolder;
+            }
+          }
+          .c-text {
+            max-width: 90%;
+            padding-top: 3px;
+          }
+          a {
+            .btn {
+              color: gray;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+$breakpoints: (
+  sp: "(max-width: 375px)"
+);
+
+@mixin media($breakpoint) {
+  @media #{map-get($breakpoints,$breakpoint)}{
+      @content;
+  }
+}
