@@ -1,4 +1,5 @@
 @import "config/mixin";
+@import "config/media";
 
 // レシピのフォーム
 .f-recipe {
@@ -40,14 +41,6 @@
     }
   }
 }
-
-// @media (max-width: 455px) {
-//   .f-recipe {
-//     max-width: 100%;
-//     box-sizing: border-box;
-//   }
-// }
-
 
 // 解決案のフォーム
 .answer-form {
@@ -103,6 +96,101 @@
   }
 }
 
+// レスポンシブ
+@include media(sp) {
+  // レシピのフォーム
+  .f-recipe {
+    max-width: calc(100% - 60px);
+    border: solid thin gray;
+    padding: 20px;
+    select {
+      @include create-font;
+    }
+    .nested-fields {
+      .delete-btn {
+        @include create-btn;
+      }
+    }
+    .links {
+      .make-add {
+        @include create-btn;
+      }
+    }
+    .f-item {
+      @include create-padding;
+      font-size: smaller;
+      font-weight: bolder;
+      input {
+        @include create-font;
+      }
+      textarea {
+        @include create-font;
+      }
+    }
+    .f-image {
+      @include create-padding;
+    }
+    .f-submit {
+      text-align: center;
+      padding: 10px;
+      input {
+        @include submit-btn;
+      }
+    }
+  }
 
+  // 解決案のフォーム
+  .answer-form {
+    max-width: 100%;
+    .answer-text {
+      text-align: center;
+      textarea {
+        width: calc(100% - 30px);
+        height: 100px;
+        margin-top: 20px;
+      }
+    }
+    .answer-submit {
+      text-align: center;
+      input {
+        @include submit-btn;
+      }
+    }
+  }
 
-
+  // お悩み相談のフォーム
+  .trouble-box {
+    max-width: calc(100% - 15px);
+    border: dotted thin gray;
+    padding: 5px;
+    label {
+      font-size: small;
+      font-weight: bolder;
+    }
+    .trouble-title {
+      text-align: center;
+      margin-bottom: 15px;
+      input {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        width: calc(100% - 20px);
+        height: 30px;
+      }
+    }
+    .trouble-content {
+      margin-top: 15px;
+      text-align: center;
+      textarea {
+        width: calc(100% - 20px);
+        height: 100px;
+      }
+    }
+    .trouble-submit {
+      text-align: center;
+      input {
+        @include submit-btn;
+      }
+    }
+  }
+}

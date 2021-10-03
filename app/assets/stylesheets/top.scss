@@ -1,4 +1,5 @@
 @import "config/mixin";
+@import "config/media";
 
 .word {
   @include base;
@@ -72,10 +73,6 @@
   }
 }
 
-
-
-
-
 .rank-list {
   @include base;
   .rank-box {
@@ -129,5 +126,136 @@
   @include toplink;
   a {
     @include toplink-font;
+  }
+}
+
+// レスポンシブ
+@include media(sp) {
+  .word {
+    max-width: calc(100% - 20px);
+    h1 {
+      font-size: x-large;
+      padding: 5px;
+    }
+    a {
+      font-size: smaller;
+      font-weight: lighter;
+      border: solid thin gray;
+      background-color: lightpink;
+      color: black;
+      float: right;
+      text-decoration: none;
+      padding: 5px;
+    }
+  }
+  .top-list {
+    max-width: calc(100% - 20px);
+    .top-box {
+      @include mainbox;
+      .top-int {
+        font-size: smaller;
+      }
+      .top-name {
+        a {
+          @include recipe-name;
+        }
+        .like {
+          float: right;
+        }
+        .like-count {
+          float: right;
+        }
+        .like-btn {
+          color: gray;
+        }
+        .unlike-btn {
+          color: palevioletred;
+        }
+      }
+      .top-image {
+        display: flex;
+        img {
+          @include basicimage;
+        }
+        .top-introduction {
+          @include recipe-introduction;
+        } 
+      }
+      .user-image {
+        height: 20px;
+        display: flex;
+        img {
+          @include userimage-basic;
+        }
+      .user-name {
+        @include user-name;
+        a {
+          @include user-name-font;
+        }
+      }
+      }
+    }
+  }
+  .to-index {
+    max-width: calc(100% - 10px);
+    a {
+      @include toplink-font
+    }
+  }
+  
+  .rank-list {
+    max-width: calc(100% - 20px);
+    .rank-box {
+      @include mainbox;
+      .rank-int {
+        font-size: smaller;
+      }
+      .rank-name {
+        a {
+          @include recipe-name;
+        }
+        .like {
+          float: right;
+        }
+        .like-count {
+          float: right;
+        }
+        .like-btn {
+          color: gray;
+        }
+        .unlike-btn {
+          color: palevioletred;
+        }
+      }
+      .rank-image {
+        display: flex;
+        img {
+          @include basicimage;
+        }
+        .rank-introduction {
+          @include recipe-introduction;
+        } 
+      }
+      .user-image {
+        height: 20px;
+        display: flex;
+        img {
+          height: 20px;
+          border-radius: 50%;
+        }
+      .user-name {
+        @include user-name;
+        a {
+          @include user-name-font;
+        }
+      }
+      }
+    }
+  }
+  .to-rank {
+    max-width: calc(100% - 20px);
+    a {
+      @include toplink-font;
+    }
   }
 }

@@ -54,7 +54,10 @@
       - @comments.order('created_at DESC').each do |c|
         .comments-form__text-all__list
           .c-image
-            = image_tag c.user.image.thumb.url
+            - if c.user.image?
+              = image_tag c.user.image.thumb.url
+            - else
+              = image_tag asset_path('default.png')
           .c-name
             = link_to c.user.name, user_path(c.user.id)
             .c-text
