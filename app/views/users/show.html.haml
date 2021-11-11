@@ -19,14 +19,14 @@
   .user-recipes
     = "#{@user.name}さんの新着レシピ"
     .top-list
-      - @user.recipes.order(created_at: :desc).each do |r|
+      - @user.recipes.order(created_at: :desc).each do |recipe|
         .top-box
           .top-name
-            = link_to "#{r.name}", "/recipes/#{r.id}"
+            = link_to "#{recipe.name}", "/recipes/#{recipe.id}"
           .top-image
-            - if r.image?
-              = image_tag r.image.thumb.url
+            - if recipe.image?
+              = image_tag recipe.image.thumb.url
             - else
               = image_tag asset_path('default.png')
             .top-introduction
-              = r.introduction
+              = recipe.introduction

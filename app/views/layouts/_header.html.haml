@@ -53,8 +53,8 @@
             = link_to "お悩み一覧", troubles_path, class: "item"
 
 .search-form
-  = form_with url: search_recipes_path, method: :get, local: true do |f|
-    = f.text_field :keyword, placeholder: "レシピ名で検索"
+  = form_with url: search_recipes_path, method: :get, local: true do |search|
+    = search.text_field :keyword, placeholder: "レシピ名で検索"
     = button_tag do
       = icon("fas", "search")
 

@@ -13,6 +13,7 @@ class Recipe < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :serving
+  has_many :buy_items
 
   def self.search(keyword)
     if keyword
@@ -22,5 +23,4 @@ class Recipe < ApplicationRecord
     end
   end
 
-  has_many :buy_items
 end

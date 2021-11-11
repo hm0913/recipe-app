@@ -11,7 +11,7 @@
       = link_to "#{@recipe.user.name}さんのレシピ", user_path(@recipe.user_id)
       .recipe-like
         %div{id: "likes_buttons_#{@recipe.id}"}
-          = render 'favorite', {r: @recipe}
+          = render 'favorite', {recipe: @recipe}
   .recipe-category
     = @recipe.category.name
   .recipe-name
@@ -24,7 +24,7 @@
       [材料]
       = "(#{@recipe.serving_id}人分)"
       .delete-items
-        = link_to "全て未購入にする", destroy_all_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: @recipe.id}), method: :delete, class: "delete-all"
+        = link_to "全て未購入にする", destroy_all_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: @recipe.id}), method: :delete
       .ingredient-detail
         - @ingredient.each do |ingredient|
           .ingredient
@@ -42,29 +42,29 @@
         = make.sentence
 .comments
   .comments-form
-    = form_with model: [@recipe, @comment], local: true do |f|
+    = form_with model: [@recipe, @comment], local: true do |comment|
       .c-area
-        = f.text_area :text, placeholder: "コメントする"
+        = comment.text_area :text, placeholder: "コメントする"
       .c-sub
-        = f.submit "送信"
+        = comment.submit "送信"
   .comments-form__text-all
     %h4
       ＜コメント一覧＞
     - if @comments.present?
-      - @comments.order('created_at DESC').each do |c|
+      - @comments.order('created_at DESC').each do |comment|
         .comments-form__text-all__list
           .c-image
-            - if c.user.image?
-              = image_tag c.user.image.thumb.url
+            - if comment.user.image?
+              = image_tag comment.user.image.thumb.url
             - else
               = image_tag asset_path('default.png')
           .c-name
-            = link_to c.user.name, user_path(c.user.id)
+            = link_to comment.user.name, user_path(comment.user.id)
             .c-text
-              = c.text
+              = comment.text
           .destroy-btn
-          - if c.user == current_user
-            = link_to recipe_comment_path(@recipe, c), method: :delete do
+          - if comment.user == current_user
+            = link_to recipe_comment_path(@recipe, comment), method: :delete do
               = icon("fas", "trash-alt", class: "btn") 
     - else
       = "まだコメントがありません" 

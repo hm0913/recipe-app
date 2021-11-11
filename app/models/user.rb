@@ -10,12 +10,16 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :troubles, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :buy_items
+  has_many :answers, dependent: :destroy
 
+  
   def favorited_by?(recipe_id)
     favorites.where(recipe_id: recipe_id).exists?
   end
   
-  has_many :comments, dependent: :destroy
+  
 
   def self.guest
     find_or_create_by!(email: "test@com") do |user|
@@ -24,7 +28,7 @@ class User < ApplicationRecord
     end
   end
 
-  has_many :buy_items
+  
 
   def checked_by?(ingredient_id)
     buy_items.where(ingredient_id: ingredient_id).exists?
@@ -34,6 +38,6 @@ class User < ApplicationRecord
     buy_items.where(recipe_id: recipe_id).exists?
   end
 
-  has_many :answers, dependent: :destroy
+  
 
 end

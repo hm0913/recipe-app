@@ -1,12 +1,12 @@
-- if current_user.favorited_by?(r.id)
+- if current_user.favorited_by?(recipe.id)
   .like
-    = link_to destroy_favorite_path(r), method: :delete, remote: true do
+    = link_to destroy_favorite_path(recipe), method: :delete, remote: true do
       = icon("fas", "heart", class: "unlike-btn")
       .like-count
-        = r.favorites.count
+        = recipe.favorites.count
 - else
   .like
-    = link_to create_favorite_path(r), method: :POST, remote: true do
+    = link_to create_favorite_path(recipe), method: :POST, remote: true do
       = icon("far", "heart", class: "like-btn")
       .like-count
-        = r.favorites.count
+        = recipe.favorites.count

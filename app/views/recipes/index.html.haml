@@ -1,22 +1,22 @@
 .top-list
-  - @recipes.each do |r|
+  - @recipes.each do |recipe|
     .top-box
       .top-name
-        = link_to "#{r.name}", recipe_path(r.id)
+        = link_to "#{recipe.name}", recipe_path(recipe.id)
         .like
-          %div{id: "likes_buttons_#{r.id}"}
-            = render 'favorite', {r: r}
+          %div{id: "likes_buttons_#{recipe.id}"}
+            = render 'favorite', {recipe: recipe}
       .top-image
-        - if r.image?
-          = image_tag r.image.thumb.url
+        - if recipe.image?
+          = image_tag recipe.image.thumb.url
         -else
           = image_tag asset_path('default.png')
         .top-introduction
-          = r.introduction
+          = recipe.introduction
       .user-image
-        - if r.user.image?
-          = image_tag r.user.image.thumb.url
+        - if recipe.user.image?
+          = image_tag recipe.user.image.thumb.url
         - else
           = image_tag asset_path('default.png')
         .user-name
-          = link_to "#{r.user.name}", user_path(r.user.id)
+          = link_to "#{recipe.user.name}", user_path(recipe.user.id)
