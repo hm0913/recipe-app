@@ -14,9 +14,9 @@ class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :serving
 
-  def self.search(search)
-    if search
-      Recipe.where('name LIKE(?)', "%#{search}%")
+  def self.search(keyword)
+    if keyword
+      Recipe.where('name LIKE ?', "%#{keyword}%")
     else
       Recipe.order("created_at DESC")
     end
