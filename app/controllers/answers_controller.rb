@@ -1,14 +1,18 @@
 class AnswersController < ApplicationController
   def create
     answer = Answer.create(answer_params)
-    redirect_to root_path
+    if answer.save
+      redirect_back fallback_location: root_path, notice: "回答が完了しました"
+    else
+      redirect_back fallback_location: root_path, notice: "回答に失敗しました"
+    end
   end
 
   def destroy
     @trouble = Trouble.find(params[:trouble_id])
     @answer = @trouble.answers.find(params[:id])
     @answer.destroy
-    redirect_to root_path
+    redirect_back fallback_location: root_path
   end
 
   private
