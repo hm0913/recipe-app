@@ -23,4 +23,12 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def self.research(serving_id)
+    if serving_id >= 5
+      Recipe.where("serving_id >= ?", 5)
+    else
+      Recipe.where(serving_id: serving_id)
+    end
+  end
+
 end

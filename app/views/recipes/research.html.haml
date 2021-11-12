@@ -1,6 +1,6 @@
 .word
 .top-list
-  - @recipe.order(created_at: :desc).each do |recipe|
+  - @serving_list.order(created_at: :desc).each do |recipe|
     .top-box
       .top-name
         = link_to "#{recipe.name}", recipe_path(recipe.id)

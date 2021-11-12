@@ -55,11 +55,8 @@ class RecipesController < ApplicationController
   end
 
   def research
-    if params[:id].to_i >= 5
-      @recipe = Recipe.where("serving_id >= ?", 5)
-    else
-      @recipe = Recipe.where(serving_id: params[:id])
-    end
+    @serving_list = Recipe.where("serving_id >= ?", 5)
+    @serving_list = Recipe.where(serving_id: params[:id])
   end
 
   def top
