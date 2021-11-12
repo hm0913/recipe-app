@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_book, only: [:edit, :update, :destroy, :show]
+  before_action :set_action, only: [:edit, :update, :destroy, :show]
   
   def index
     @recipes = Recipe.order("created_at DESC")
@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
     @rank = Recipe.find(Favorite.group(:recipe_id).order('count(recipe_id) DESC').pluck(:recipe_id)).first(4)
   end
 
-  def set_book
+  def set_action
     @recipe = Recipe.find(params[:id])
   end
 
