@@ -4,10 +4,10 @@ class AnswersController < ApplicationController
     if answer.save
       redirect_back fallback_location: root_path, notice: "回答が完了しました"
     else
-      redirect_back fallback_location: root_path, notice: "回答に失敗しました"
+      redirect_back fallback_location: root_path, alert: "コメントを入力してください"
     end
   end
-
+  
   def destroy
     @trouble = Trouble.find(params[:trouble_id])
     @answer = @trouble.answers.find(params[:id])
@@ -16,7 +16,6 @@ class AnswersController < ApplicationController
   end
 
   private
-
   def answer_params
     params.require(:answer).permit(:text).merge(user_id: current_user.id, trouble_id: params[:trouble_id])
   end
