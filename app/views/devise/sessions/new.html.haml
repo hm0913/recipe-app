@@ -16,6 +16,6 @@
           = f.label :remember_me
         .actions
           = f.submit "ログイン"
-        = render "devise/shared/links"
+        -# = render "devise/shared/links"
 .guest
   = link_to "ゲストユーザーでログイン", users_guest_sign_in_path, method: :post

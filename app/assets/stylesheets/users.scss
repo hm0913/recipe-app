@@ -2,7 +2,8 @@
 @import "config/media";
 
 .area {
-  @include base;
+  width: 400px;
+  margin: 0 auto;
   border: solid thin black;
   h2 {
     text-align: center;
@@ -53,7 +54,12 @@
     .actions {
       text-align: center;
       input {
+        width: 100px;
         margin: 8px;
+        background-color: #e5554e;
+        color: #fff;
+        border-radius: 30px;
+        border-color:  #e5554e;
       }
     }
     a {
@@ -91,6 +97,7 @@
   border: solid thin black;
   text-align: center;
   margin-top: 50px;
+  border-radius: 30px;
   a {
     text-decoration: none;
     color: black;
