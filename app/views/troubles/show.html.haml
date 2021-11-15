@@ -1,6 +1,9 @@
 .box
   .trouble-title
     = @trouble.title
+    .update-btn
+      -if user_signed_in? && current_user.id == @trouble.user_id
+        = link_to "変更", edit_trouble_path(@trouble.id)
     .destroy-btn
       - if user_signed_in? && current_user.id == @trouble.user_id
         = link_to "削除", trouble_path(@trouble.id), data: {confirm: "本当に削除しますか？"},  method: :delete

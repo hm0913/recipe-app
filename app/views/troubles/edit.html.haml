@@ -1,0 +1,15 @@
+.word
+  %h1
+    お悩み相談所
+= form_with model: @trouble, local: true do |trouble|
+  .trouble-box
+    .label
+      = trouble.label :title, "タイトル(30文字以内)"
+      .trouble-title
+        = trouble.text_field :title
+    .label
+      = trouble.label :content, "内容"
+      .trouble-content
+        = trouble.text_area :content
+    .trouble-submit
+      = trouble.submit "変更する"
