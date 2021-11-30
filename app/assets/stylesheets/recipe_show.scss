@@ -5,9 +5,10 @@
   @include base;
   border: solid thin gray;
   &-category {
-    border: solid medium red ;
+    border: solid 3px red;
     border-radius: 50px;
     height: 15px;
+    padding: 5px;
     width: 20%;
     background-color: salmon;
     text-align: center;
@@ -59,7 +60,7 @@
         color: black;
         float: right;
         margin: 5px;
-        a { 
+        a {
           text-decoration: none;
           color: black;
           font-size: smaller;

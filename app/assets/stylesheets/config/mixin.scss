@@ -115,5 +115,7 @@
 @mixin buyitem-btn {
   float: right;
   text-decoration: none;
-  border: solid thin gray;
+  border: solid 2px gray;
+  border-radius: 100%;
+  line-height: 30px;
 }

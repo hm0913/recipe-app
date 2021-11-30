@@ -65,6 +65,6 @@
           .destroy-btn
           - if comment.user == current_user
             = link_to recipe_comment_path(@recipe, comment), method: :delete do
-              = icon("fas", "trash-alt", class: "btn") 
+              = icon("fas", "trash-alt", class: "btn")
     - else
-      = "まだコメントがありません" 
+      = "まだコメントがありません"

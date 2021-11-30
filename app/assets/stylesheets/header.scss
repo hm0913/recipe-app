@@ -24,7 +24,7 @@ header {
     width: 45%;
     line-height: 50px;
     .navigation-category {
-      border-bottom: solid thin gray;
+      border-bottom: solid 1px gray;
       list-style: none;
       margin: 5px;
       width: 300px;
@@ -34,25 +34,30 @@ header {
         .list {
           text-decoration: none;
           color: black;
+          display: block;
         }
       }
         .item-box {
           visibility: hidden;
-          width: 12%;
+          width: 150px;
           position: absolute;
           .category-item {
             background-color: ivory;
             list-style: none;
+            a {
+              display: block;
+            }
             .item {
               text-decoration: none;
               color: black;
             }
           }
-        } 
+        }
     }
     .navigation-category:hover .item-box {
       visibility: visible;
-      border: solid medium gray;
+      border: solid 1px gray;
+      font-weight: bolder;
     }
   }
   .search-form {
@@ -106,7 +111,7 @@ header {
       @include headbox;
       float: left;
       display: flex;
-      width: 80%;
+      width: 45%;
       line-height: 50px;
       .navigation-category {
         border-bottom: solid thin gray;
@@ -114,31 +119,35 @@ header {
         margin: 5px;
         width: 300px;
         text-align: center;
-        font-size: 5px;
+        font-size: smaller;
         .navigation-list {
           .list {
             text-decoration: none;
             color: black;
+            display: block;
           }
         }
           .item-box {
             visibility: hidden;
-            width: 60px;
+            width: 150px;
             position: absolute;
             .category-item {
               background-color: ivory;
               list-style: none;
-              width: 60px;
+              a {
+                display: block;
+              }
               .item {
                 text-decoration: none;
                 color: black;
               }
             }
-          } 
+          }
       }
       .navigation-category:hover .item-box {
         visibility: visible;
-        border: solid thin gray;
+        border: solid 1px gray;
+        font-weight: bolder;
       }
     }
     .search-form {
