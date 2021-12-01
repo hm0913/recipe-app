@@ -17,27 +17,27 @@
       }
     }
     .btn {
-      padding: 30px;
-      .prof-link {
+      .link {
         padding: 10px;
+        margin-top: 10px;
         a {
-          @include proflink;
+          color: black;
+          text-decoration: none;
+          font-size: smaller;
         }
       }
-      .write-link {
-        padding: 10px;
-        a {
-          @include proflink;
-        }
+      .prof {
+        background-color: lightpink;
       }
-      .favorite-link {
-        padding: 10px;
-        a {
-          @include proflink;
-        }
+      .write {
+        background-color: lightyellow;
+      }
+      .favorite {
+        background-color: lightskyblue;
       }
     }
   }
+
   .user-recipes {
     @include base;
     margin-top: 50px;
@@ -45,7 +45,7 @@
       @include base;
       .top-box {
         @include mainbox;
-      }   
+      }
       .top-name {
         a {
           @include recipe-name;
@@ -82,22 +82,13 @@
         }
       }
       .btn {
-        .prof-link {
+        .link {
           padding: 10px;
+          margin-top: 10px;
           a {
-            @include proflink;
-          }
-        }
-        .write-link {
-          padding: 10px;
-          a {
-            @include proflink;
-          }
-        }
-        .favorite-link {
-          padding: 10px;
-          a {
-            @include proflink;
+            color: black;
+            text-decoration: none;
+            font-size: smaller;
           }
         }
       }
@@ -109,7 +100,7 @@
         @include base;
         .top-box {
           @include mainbox;
-        }   
+        }
         .top-name {
           a {
             @include recipe-name;

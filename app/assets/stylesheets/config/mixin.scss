@@ -36,13 +36,6 @@
   padding: 20px;
 }
 
-@mixin proflink {
-  color: black;
-  border-bottom: solid thin black;
-  text-decoration: none;
-  font-size: smaller;
-}
-
 @mixin basicimage {
   width: 100px;
   height: 100px;

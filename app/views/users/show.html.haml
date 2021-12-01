@@ -8,11 +8,11 @@
         = image_tag asset_path('default.png')
     .btn
       - if current_user_has?(@user)
-        .prof-link
+        .link.prof
           = link_to "プロフィールの編集", edit_user_registration_path, method: :get
-        .write-link
+        .link.write
           = link_to "レシピを書く", new_recipe_path, method: :get
-        .favorite-link
+        .link.favorite
           = link_to "お気に入り", favorites_path, method: :get
       - else
 
