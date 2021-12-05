@@ -26,7 +26,7 @@
       font-size: smaller;
     }
     .top-name {
-      a {
+      .recipe_name_font {
         @include recipe-name;
       }
       .like {
@@ -49,7 +49,7 @@
       }
       .top-introduction {
         @include recipe-introduction;
-      } 
+      }
     }
     .user-image {
       height: 20px;
@@ -59,7 +59,7 @@
       }
     .user-name {
       @include user-name;
-      a {
+      .user_name_font {
         @include user-name-font;
       }
     }
@@ -68,7 +68,7 @@
 }
 .to-index {
   @include toplink;
-  a {
+  .top_link {
     @include toplink-font
   }
 }
@@ -81,7 +81,7 @@
       font-size: smaller;
     }
     .rank-name {
-      a {
+      .recipe_name_font {
         @include recipe-name;
       }
       .like {
@@ -104,7 +104,7 @@
       }
       .rank-introduction {
         @include recipe-introduction;
-      } 
+      }
     }
     .user-image {
       height: 20px;
@@ -115,7 +115,7 @@
       }
     .user-name {
       @include user-name;
-      a {
+      .user_name_font {
         @include user-name-font;
       }
     }
@@ -124,7 +124,7 @@
 }
 .to-rank {
   @include toplink;
-  a {
+  .top_link {
     @include toplink-font;
   }
 }

@@ -18,7 +18,7 @@
   }
   .user-name {
     text-align: right;
-    a {
+    .user_name_font {
       text-decoration: none;
       color: gray;
     }
@@ -60,7 +60,7 @@
         color: black;
         float: right;
         margin: 5px;
-        a {
+        .all_delete_btn {
           text-decoration: none;
           color: black;
           font-size: smaller;

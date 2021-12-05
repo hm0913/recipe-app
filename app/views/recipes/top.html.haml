@@ -5,7 +5,7 @@
   - @recipes.each do |recipe|
     .top-box
       .top-name
-        = link_to "#{recipe.name}", recipe_path(recipe.id)
+        = link_to "#{recipe.name}", recipe_path(recipe.id), class: "recipe_name_font"
         .like
           %div{id: "likes_buttons_#{recipe.id}"}
             = render 'recipes/favorite', {recipe: recipe}
@@ -19,9 +19,9 @@
         - else
           = image_tag asset_path('default.png')
         .user-name
-          = link_to "#{recipe.user.name}", user_path(recipe.user.id)
+          = link_to "#{recipe.user.name}", user_path(recipe.user.id), class: "user_name_font"
 .to-index
-  = link_to "新着レシピをもっと見る", recipes_path
+  = link_to "新着レシピをもっと見る", recipes_path, class: "top_link"
 .word
   %h1
     人気ランキング
@@ -31,7 +31,7 @@
       .rank-int
         = "#{rank + 1}位"
       .rank-name
-        = link_to "#{recipe.name}", recipe_path(recipe.id)
+        = link_to "#{recipe.name}", recipe_path(recipe.id), class: "recipe_name_font"
         .like
           %div{id: "likes_buttons_#{recipe.id}"}
             = render 'recipes/favorite', {recipe: recipe}
@@ -45,6 +45,6 @@
         - else
           = image_tag asset_path('default.png')
         .user-name
-          = link_to "#{recipe.user.name}", user_path(recipe.user.id)
+          = link_to "#{recipe.user.name}", user_path(recipe.user.id), class: "user_name_font"
 .to-rank
-  = link_to "人気ランキングをもっと見る", rank_favorite_path
+  = link_to "人気ランキングをもっと見る", rank_favorite_path, class: "top_link"

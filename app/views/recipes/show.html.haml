@@ -8,7 +8,7 @@
         = icon("fas", "trash-alt", class: "delete-btn")
   -else
     .user-name
-      = link_to "#{@recipe.user.name}さんのレシピ", user_path(@recipe.user_id)
+      = link_to "#{@recipe.user.name}さんのレシピ", user_path(@recipe.user_id), class:"user_name_font"
       .recipe-like
         %div{id: "likes_buttons_#{@recipe.id}"}
           = render 'favorite', {recipe: @recipe}
@@ -24,7 +24,7 @@
       [材料]
       = "(#{@recipe.serving_id}人分)"
       .delete-items
-        = link_to "全て未購入にする", destroy_all_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: @recipe.id}), method: :delete
+        = link_to "全て未購入にする", destroy_all_buy_item_path(buy_item: {user_id: current_user.id, recipe_id: @recipe.id}), method: :delete, class: "all_delete_btn"
       .ingredient-detail
         - @ingredient.each do |ingredient|
           .ingredient

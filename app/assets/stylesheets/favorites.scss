@@ -20,13 +20,13 @@
     margin: 5px;
     padding: 5px;
     .recipe-name {
-      a {
+      .recipe_name_font {
       text-decoration: none;
       color: black;
       font-weight: bolder;
       font-size: medium;
       }
-    }  
+    }
     .recipe-image {
       img {
         @include basicimage;

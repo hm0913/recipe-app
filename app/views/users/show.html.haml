@@ -9,11 +9,11 @@
     .btn
       - if current_user_has?(@user)
         .link.prof
-          = link_to "プロフィールの編集", edit_user_registration_path, method: :get
+          = link_to "プロフィールの編集", edit_user_registration_path, method: :get, class: "link_font"
         .link.write
-          = link_to "レシピを書く", new_recipe_path, method: :get
+          = link_to "レシピを書く", new_recipe_path, method: :get, class: "link_font"
         .link.favorite
-          = link_to "お気に入り", favorites_path, method: :get
+          = link_to "お気に入り", favorites_path, method: :get, class: "link_font"
       - else
 
   .user-recipes
@@ -22,7 +22,7 @@
       - @user.recipes.order(created_at: :desc).each do |recipe|
         .top-box
           .top-name
-            = link_to "#{recipe.name}", "/recipes/#{recipe.id}"
+            = link_to "#{recipe.name}", "/recipes/#{recipe.id}", class: "recipe_name_link"
           .top-image
             - if recipe.image?
               = image_tag recipe.image.thumb.url

@@ -7,7 +7,7 @@
       - @favorites.order('created_at DESC').each do |favorite|
         .favorite-list
           .recipe-name
-            = link_to "#{favorite.recipe.name}", recipe_path(favorite.recipe.id)
+            = link_to "#{favorite.recipe.name}", recipe_path(favorite.recipe.id), class: "recipe_name_font"
           .recipe-image
             = image_tag favorite.recipe.image.thumb.url
           .time
