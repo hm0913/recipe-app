@@ -7,27 +7,83 @@
   border: solid thin gray;
   .trouble-title {
     font-size: x-large;
+
     .trouble-btn {
       display: flex;
       justify-content: flex-end;
-      .destroy-btn {
-        a {
-          font-size: small;
-          text-decoration: none;
-          color: gray;
-          margin-right: 10px;
-        }
+
+      .trouble_btn_font {
+        font-size: small;
+        text-decoration: none;
+        color: gray;
+        margin-right: 10px;
       }
-      .update-btn {
-        a {
-          font-size: small;
+    }
+  }
+
+  .user-image {
+    display: flex;
+    img {
+      @include userimage-biger;
+    }
+    .user-name {
+      font-size: smaller;
+    }
+  }
+  .trouble-conten {
+    border-bottom: dotted thin gray;
+  }
+}
+
+
+// 解決案の詳細
+.answer-box {
+  @include base;
+  margin-top: 50px;
+  .answer-list {
+    border-top: dotted thin gray;
+    padding: 5px;
+    .user-image {
+      display: flex;
+      img {
+        @include userimage-biger
+      }
+      .user-name {
+        .answer_user_name_font {
           text-decoration: none;
-          color: gray;
-          margin-right: 10px;
+          color: black;
+          font-size: smaller;
+        }
+        .time {
+          font-size: smaller;
         }
       }
     }
   }
+}
+
+
+
+// レスポンシブ
+.box {
+  @include base;
+  border: solid thin gray;
+  .trouble-title {
+    font-size: x-large;
+
+    .trouble-btn {
+      display: flex;
+      justify-content: flex-end;
+
+      .trouble_btn_font {
+        font-size: small;
+        text-decoration: none;
+        color: gray;
+        margin-right: 10px;
+      }
+    }
+  }
+
   .user-image {
     display: flex;
     img {
@@ -55,7 +111,7 @@
         @include userimage-biger
       }
       .user-name {
-        a {
+        .answer_user_name_font {
           text-decoration: none;
           color: black;
           font-size: smaller;
@@ -63,80 +119,6 @@
         .time {
           font-size: smaller;
         }
-      }
-    }
-    .answer-content {
-    }
-  }
-}
-
-// レスポンシブ
-@include media(sp) {
-  // お悩みの詳細
-  .box {
-    max-width: calc(100% - 10px);
-    border: solid thin gray;
-    .trouble-title {
-      font-size: x-large;
-      .trouble-btn {
-        display: flex;
-        justify-content: flex-end;
-        .destroy-btn {
-          a {
-            font-size: small;
-            text-decoration: none;
-            color: gray;
-            margin-right: 10px;
-          }
-        }
-        .update-btn {
-          a {
-            font-size: small;
-            text-decoration: none;
-            color: gray;
-            margin-right: 10px;
-          }
-        }
-      }
-    }
-    .user-image {
-      display: flex;
-      img {
-        @include userimage-biger;
-      }
-      .user-name {
-        font-size: smaller;
-      }
-    }
-    .trouble-conten {
-      border-bottom: dotted thin gray;
-    }
-  }
-
-  // 解決案の詳細
-  .answer-box {
-    max-width: calc(100% - 10px);
-    margin-top: 50px;
-    .answer-list {
-      border-top: dotted thin gray;
-      padding: 5px;
-      .user-image {
-        display: flex;
-        img {
-          @include userimage-biger
-        }
-        .user-name {
-          a {
-            text-decoration: none;
-            color: black;
-            font-size: smaller;
-          }
-          .time {
-            font-size: smaller;
-          }
-        }
-      }
-      .answer-content {
       }
     }
   }
