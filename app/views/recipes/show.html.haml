@@ -59,7 +59,7 @@
             - else
               = image_tag asset_path('default.png')
           .c-name
-            = link_to comment.user.name, user_path(comment.user.id)
+            = link_to comment.user.name, user_path(comment.user.id), class:"user_name_font"
             .c-text
               = comment.text
           .destroy-btn
