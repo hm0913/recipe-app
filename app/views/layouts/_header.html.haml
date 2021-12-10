@@ -1,4 +1,24 @@
-= link_to "My kitchen", root_path, class: "title"
+.head-item
+  = link_to "My kitchen", root_path, class: "title"
+
+  .search-form
+    = form_with url: search_recipes_path, method: :get, local: true do |search|
+      = search.text_field :keyword, placeholder: "レシピ名で検索", class: "search-input"
+      = button_tag do
+        = icon("fas", "search", class: "search-btn")
+
+  .header-btn
+    - if user_signed_in?
+      = link_to "/users/#{current_user.id}", method: :get, class: "top_icon" do
+        = icon("fas", "user-alt", class: "user-btn btn")
+      = link_to destroy_user_session_path, method: :delete, class: "top_icon" do
+        = icon("fas", "sign-out-alt", class: "sign-out-btn btn")
+      
+    - else
+      = link_to new_user_registration_path, method: :get, class: "top_icon" do
+        = icon("fas", "user-plus", class: "user-btn btn")
+      = link_to new_user_session_path, method: :get, class: "top_icon" do
+        = icon("fas", "sign-in-alt", class: "sign-out-btn btn")
 
 .menu_nav
   %ul.menu
@@ -36,29 +56,10 @@
       = link_to "ランキング", rank_favorite_path, class: "list"
       %ul.item-box
         %li.category-item
-          = link_to "ランキング", rank_favorite_path, class: "item"
+          = link_to "人気ランキング", rank_favorite_path, class: "item"
 
     %li.navigation-list
       = link_to "お悩み相談", troubles_path, class: "list"
       %ul.item-box
         %li.category-item
           = link_to "お悩み一覧", troubles_path, class: "item"
-
-.search-form
-  = form_with url: search_recipes_path, method: :get, local: true do |search|
-    = search.text_field :keyword, placeholder: "レシピ名で検索", class: "search-form"
-    = button_tag do
-      = icon("fas", "search", class: "search-btn")
-
-.header-btn
-  - if user_signed_in?
-    = link_to "/users/#{current_user.id}", method: :get, class: "top_icon" do
-      = icon("fas", "user-alt", class: "user-btn btn")
-    = link_to destroy_user_session_path, method: :delete, class: "top_icon" do
-      = icon("fas", "sign-out-alt", class: "sign-out-btn btn")
-    
-  - else
-    = link_to new_user_registration_path, method: :get, class: "top_icon" do
-      = icon("fas", "user-plus", class: "user-btn btn")
-    = link_to new_user_session_path, method: :get, class: "top_icon" do
-      = icon("fas", "sign-in-alt", class: "sign-out-btn btn")
