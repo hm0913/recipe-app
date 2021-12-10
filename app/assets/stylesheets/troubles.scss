@@ -9,12 +9,13 @@
 .new-path {
   @include base;
   text-align: right;
-  a {
+  .trouble_new_link {
     font-size: 20px;
     color: black;
     text-decoration: none;
     border: solid thin gray;
     background-color: lightpink;
+    border-radius: 10px;
   }
 }
 .trouble-list {
@@ -27,7 +28,7 @@
     height: 60px;
     .trouble-title {
       width: 300px;
-      a {
+      .trouble_detail_link {
         font-weight: bolder;
         text-decoration: none;
         color: black;
@@ -42,7 +43,7 @@
       }
       .user-name {
         @include user-name;
-        a {
+        .user_name_font {
           @include user-name-font;
         }
         .time {
