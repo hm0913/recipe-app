@@ -3,12 +3,18 @@
 
 body {
 }
-header {
 
+main {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+header {
+  
   .head-item {
     display: flex;
     align-items: flex-end;
-    margin-top: 15px;
+    padding-top: 20px;
   }
 
   // タイトル
