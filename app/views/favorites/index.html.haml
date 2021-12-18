@@ -1,16 +1,15 @@
 .tpic
-  %h1
+  %h1.favorite_title
     あなたのお気に入りレシピ一覧
-.favorite.all
-  - if @favorites.present?
-    .my-favorite
-      - @favorites.order('created_at DESC').each do |favorite|
-        .favorite-list
-          .recipe-name
-            = link_to "#{favorite.recipe.name}", recipe_path(favorite.recipe.id), class: "recipe_name_font"
-          .recipe-image
-            = image_tag favorite.recipe.image.thumb.url
-          .time
-            = "お気に入り登録日：#{favorite.created_at.strftime("%Y/%m/%d")}"
-  - else
-    = "お気に入り登録中のレシピはありません"
+- if @favorites.present?
+  .my-favorite
+    - @favorites.order('created_at DESC').each do |favorite|
+      .favorite-list
+        .recipe-name
+          = link_to "#{favorite.recipe.name}", recipe_path(favorite.recipe.id), class: "recipe_name_font"
+        .recipe-image
+          = image_tag favorite.recipe.image.thumb.url
+        .time
+          = "お気に入り登録日：#{favorite.created_at.strftime("%Y/%m/%d")}"
+- else
+  = "お気に入り登録中のレシピはありません"
