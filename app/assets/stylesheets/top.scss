@@ -3,11 +3,11 @@
 
 .word {
   @include base;
-  h1 {
+  .top_title {
     font-size: x-large;
     padding: 5px;
   }
-  a {
+  .recipe_name_font {
     font-size: smaller;
     font-weight: lighter;
     border: solid thin gray;
