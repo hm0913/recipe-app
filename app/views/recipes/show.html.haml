@@ -43,9 +43,9 @@
 .comments
   .comments-form
     = form_with model: [@recipe, @comment], local: true do |comment|
-      .c-area
+      .comment-area
         = comment.text_area :text, placeholder: "コメントする"
-      .c-sub
+      .comment-sub
         = comment.submit "送信"
   .comments-form__text-all
     %h4
